@@ -468,7 +468,7 @@ button {
 .sobre-mim-section {
   width: 100vw;
   min-width: 100%;
-  height: 35rem;
+  height: 36rem;
   background: #070E0C;
   display: flex;
   align-items: center;
@@ -1253,6 +1253,7 @@ textarea::placeholder {
 }
 
 .contato-copy {
+  margin-top: 2rem;
   display: flex;
   height: 28px;
   flex-direction: column;
@@ -1915,6 +1916,7 @@ textarea::placeholder {
     justify-content: center;
   }
   .contato-copy {
+    margin-top: 0.5rem;
     width: 100%;
     font-size: 0.9rem;
     margin-bottom: 8px;
