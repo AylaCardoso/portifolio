@@ -225,6 +225,7 @@ button {
   cursor: pointer;
   border-radius: 5px;
   transition: all 0.3s ease;
+  text-transform: none !important;
 }
 .btn-figma-projeto:hover,
 .btn-figma-projeto:focus {
@@ -242,6 +243,7 @@ button {
   cursor: pointer;
   border-radius: 5px;
   transition: all 0.3s ease;
+  text-transform: none !important;
 }
 .btn-caso-estudo:hover,
 .btn-caso-estudo:focus {
@@ -757,8 +759,8 @@ button {
 }
 
 .certificados-course {
-  font-family: 'Fauna One', serif;
-  font-size: 20px;
+  font-family: 'Inter', serif;
+  font-size: 24px;
   font-weight: 600;
   color: #181d16;
   margin-bottom: 6px;
@@ -1425,7 +1427,7 @@ textarea::placeholder {
     background: none;
     padding: 0 24px;
     max-width: 420px;
-    font-family: 'Fauna One', serif;
+    font-family: 'Inter', serif;
     color: #181d16;
     z-index: 2;
   }
@@ -1436,7 +1438,7 @@ textarea::placeholder {
     text-align: left;
   }
   .certificados-course {
-    font-family: 'Fauna One', serif;
+    font-family: 'Inter', serif;
     font-size: 20px;
     font-weight: 600;
     color: #181d16;
@@ -1477,6 +1479,67 @@ textarea::placeholder {
   }
 }
 
+@media (max-width: 1200px) {
+  .certificados-timeline {
+    max-width: 100vw;
+    padding: 0 10px;
+  }
+  .certificados-timeline::before {
+    left: 2rem;
+    transform: none;
+    width: 2px;
+    background: #8D816F;
+    border-radius: 2px;
+    opacity: 0.85;
+  }
+  .certificados-item {
+    flex-direction: row !important;
+    align-items: flex-start;
+    min-height: 90px;
+    margin-bottom: 30px;
+    width: 100%;
+    position: relative;
+  }
+  .certificados-marker-col {
+    margin-top: 10px;
+    position: absolute;
+    left: 28px;
+    transform: none;
+    width: 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    height: 100%;
+    justify-content: flex-start;
+  }
+  .certificados-marker {
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    background: #8D816F;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(141,129,111,0.12);
+    transition: box-shadow 0.2s;
+  }
+  .certificados-content {
+    margin-left: 70px !important;
+    margin-right: 0 !important;
+    text-align: left !important;
+    max-width: 90vw;
+    padding: 0 10px;
+  }
+}
 
 @media (max-width: 600px) {
   html, body {
@@ -1584,9 +1647,9 @@ textarea::placeholder {
     width: 100%;
     font-size: 1rem;
     line-height: 1.6;
-    text-align: left;
     padding: 0;
     margin-bottom: 32px;
+    text-align: justify;
   }
   .sobre-mim-buttons {
     flex-direction: column;
@@ -1604,6 +1667,7 @@ textarea::placeholder {
     width: 280px;
     height: 48px;
     font-size: 1rem;
+    text-transform: none !important;
   }
 
   /* ----------- FORMAÇÃO ----------- */
@@ -1687,13 +1751,13 @@ textarea::placeholder {
   }
   .certificados-timeline {
     position: relative;
-    padding-left: 48px;
+    padding-left: 28px;
     max-width: 100%;
   }
   .certificados-timeline::before {
     content: "";
     position: absolute;
-    left: 1.4rem;
+    left: 2rem;
     top: 0;
     width: 2px;
     height: 100%;
@@ -1751,11 +1815,12 @@ textarea::placeholder {
     background: #F5F5E9;
   }
   .skills-title {
-    font-size: 1.3rem;
-    width: 100%;
+    font-size: 1.4rem;
     text-align: center;
-    margin-bottom: 24px;
+    width: 100%;
+    margin-bottom: 32px;
   }
+
   .skills-cards-group {
     flex-direction: column;
     gap: 16px;
@@ -1832,7 +1897,7 @@ textarea::placeholder {
     max-width: 280px;
     height: 48px;
     font-size: 1rem;
-    margin: 24px auto 0 auto;
+    margin: 0 0 8px 0;
   }
   .contato-line {
     width: calc(100% - 40px);
