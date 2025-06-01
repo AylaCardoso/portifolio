@@ -801,162 +801,6 @@ button {
   transform: translateX(0);
 }
 
-/* Telas menores que 1500px */
-@media (max-width: 1500px) {
-  .certificados-bg {
-    width: 1200px;
-    max-width: 98vw;
-    margin: 40px auto;
-    padding: 32px 4vw;
-    background: rgba(255,255,255,0.6);
-    border-radius: 18px;
-  }
-
-  .certificados-timeline {
-    position: relative;
-    padding-top: 14px;   /* metade da altura do círculo */
-    padding-bottom: 14px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .certificados-timeline::before {
-    content: "";
-    position: absolute;
-    left: 105px; /* alinhado ao centro dos círculos (ajuste conforme seu layout) */
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #8D816F;
-    z-index: 1;
-  }
-
-  .certificados-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: 85%;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    margin-bottom: 40px;
-  }
-
-  .certificados-marker-col {
-    position: absolute;
-    left: 28px;
-    width: 28px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 2;
-  }
-
-  .certificados-marker {
-    width: 28px;
-    height: 28px;
-    font-size: 18px;
-    background: #fff;
-    border: 2px solid #8D816F;
-    color: #8D816F;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    margin: 0 auto;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 2;
-  }
-
-  .certificados-content {
-    margin-left: 70px;
-    text-align: left;
-    max-width: 80%;
-    padding: 0 10px;
-  }
-}
-
-/* Telas menores que 1440px */
-@media (max-width: 1440px) {
-  .certificados-bg {
-    width: 98vw;
-    max-width: 950px;
-    margin: 32px auto;
-    padding: 28px 3vw;
-  }
-
-  .certificados-timeline {
-    position: relative;
-    padding-top: 11px;
-    padding-bottom: 11px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .certificados-timeline::before {
-    content: "";
-    position: absolute;
-    left: 29px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #8D816F;
-    z-index: 1;
-  }
-
-  .certificados-item {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    margin-bottom: 36px;
-  }
-
-  .certificados-marker-col {
-    position: absolute;
-    left: 18px;
-    width: 22px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 2;
-  }
-
-  .certificados-marker {
-    width: 22px;
-    height: 22px;
-    font-size: 14px;
-    background: #fff;
-    border: 2px solid #8D816F;
-    color: #8D816F;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    margin: 0 auto;
-    box-sizing: border-box;
-    position: relative;
-    z-index: 2;
-  }
-
-  .certificados-content {
-    margin-left: 55px;
-    text-align: left;
-    max-width: 80%;
-    padding: 0 8px;
-  }
-}
-
 .skills-section {
   width: 100vw;
   min-height: 100vh;
@@ -1067,23 +911,6 @@ button {
   list-style-type: disc;
 }
 
-@media (max-width: 1500px) {
-  .skills-title {
-    width: 100vw;
-    font-size: 32px;
-  }
-  .skills-cards-group {
-    width: 98vw;
-    gap: 24px 24px;
-  }
-  .skill-card {
-    width: 98vw;
-    max-width: 400px;
-    min-width: 260px;
-    margin: 0 auto;
-  }
-}
-
 .contato-section {
   width: 100vw;
   background: #070E0C;
@@ -1128,7 +955,6 @@ button {
   flex-direction: column;
   align-items: center;
   gap: 32px;
-  margin-bottom: 40px;
 }
 
 .floating-group {
@@ -1371,7 +1197,6 @@ textarea::placeholder {
   font-weight: 400;
   border: none;
   border-radius: 0;
-  margin: 32px auto 0 auto;
   cursor: pointer;
   transition: background 0.2s;
   display: flex;
@@ -1456,6 +1281,202 @@ textarea::placeholder {
   .contato-nav { width: 90vw; }
 
 }
+
+@media (max-width: 1500px) {
+  /* Container principal */
+  .container-case {
+    max-width: 1200px;
+    padding: 0 40px;
+    margin: 0 auto 60px auto;
+  }
+
+  /* Cards de conteúdo */
+  .card-section {
+    padding: 50px 60px;
+    margin-bottom: 40px;
+  }
+
+  /* Títulos de seção */
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+  }
+  .section-title::after {
+    width: 50px;
+    margin-top: 12px;
+  }
+
+  /* Galeria de imagens */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+  }
+  .gallery img {
+    padding: 6px;
+    border-radius: 10px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Botões */
+  .btn-case {
+    padding: 12px 32px;
+    font-size: 1.1rem;
+  }
+
+  /* Textos e listas */
+  .card-section > p,
+  .card-section > ul,
+  .card-section > ol {
+    font-size: 1.15rem;
+    line-height: 1.65;
+  }
+  ul, ol {
+    padding-left: 22px;
+  }
+  ul li, ol li {
+    margin-bottom: 0.5em;
+  }
+
+  /* Seção de Formação */
+  .formacao-curso {
+    font-size: 1.2rem;
+  }
+  .formacao-desc {
+    font-size: 1rem;
+  }
+
+  /* Cards de Skills */
+  .skills-cards-group {
+    gap: 28px 28px;
+    justify-content: center;
+  }
+  .skill-card {
+    width: 340px;
+    padding: 26px 16px;
+  }
+  .skill-card-title {
+    font-size: 1.3rem;
+  }
+
+  /* Formulário de Contato */
+  .floating-group {
+    width: 700px;
+    max-width: 100%;
+  }
+  .contato-btn {
+    width: 240px;
+    height: 54px;
+    font-size: 1rem;
+  }
+
+  /* Timeline de certificados centralizada com títulos alternados */
+  .certificados-bg {
+    width: 80%;
+    max-width: 98vw;
+    margin: 40px auto;
+    padding: 32px 4vw;
+    background: rgba(255,255,255,0.6);
+    border-radius: 18px;
+    position: relative;
+  }
+  .certificados-timeline {
+    position: relative;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .certificados-timeline::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #8D816F;
+    transform: translateX(-50%);
+    z-index: 1;
+    border-radius: 2px;
+    opacity: 0.85;
+  }
+  .certificados-item {
+    display: flex;
+    width: 100%;
+    min-height: 120px;
+    align-items: center;
+    position: relative;
+    margin-bottom: 30px;
+  }
+  .certificados-item.left {
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .certificados-item.right {
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+  .certificados-content {
+    background: none;
+    padding: 0 24px;
+    max-width: 420px;
+    font-family: 'Fauna One', serif;
+    color: #181d16;
+    z-index: 2;
+  }
+  .certificados-item.left .certificados-content {
+    text-align: right;
+  }
+  .certificados-item.right .certificados-content {
+    text-align: left;
+  }
+  .certificados-course {
+    font-family: 'Fauna One', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #181d16;
+    margin-bottom: 6px;
+  }
+  .certificados-org {
+    font-size: 15px;
+    color: #181d16;
+    opacity: 0.7;
+  }
+  .certificados-marker-col {
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  .certificados-marker {
+    width: 32px;
+    height: 32px;
+    background: #8D816F;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    z-index: 2;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0 2px 8px rgba(141,129,111,0.15);
+  }
+}
+
 
 @media (max-width: 600px) {
   html, body {
@@ -1793,7 +1814,6 @@ textarea::placeholder {
   }
   .contato-form {
     gap: 20px;
-    margin-bottom: 32px;
     width: 100%;
     padding: 0;
   }
