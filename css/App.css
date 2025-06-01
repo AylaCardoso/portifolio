@@ -232,11 +232,17 @@ button {
   background-color: var(--cor-marrom-escuro);
 }
 
+button {
+  text-transform: none !important;
+  font-variant: normal !important;
+  letter-spacing: normal !important;
+}
+
 .btn-caso-estudo {
   background-color: transparent;
   color: var(--cor-branca);
   border: 1px solid var(--cor-branca);
-  width: 145px;
+  width: 155px;
   height: 52px;
   font-family: 'Cinzel', serif;
   font-size: 16px;
