@@ -325,6 +325,101 @@ button {
   display: flex;
 }
 
+/* Esconde o menu mobile por padrão */
+.menu-mobile-btn,
+.menu-mobile,
+.menu-mobile-overlay {
+  display: none;
+}
+
+/* Exibe o menu mobile e esconde o menu desktop em telas pequenas */
+@media (max-width: 900px) {
+  .menu-mobile-btn {
+    display: block;
+  }
+  .menu-mobile {
+    display: none;
+  }
+  .menu-mobile.open {
+    display: flex;
+  }
+  .menu-mobile-overlay.open {
+    display: block;
+    opacity: 1;
+  }
+  .menu {
+    display: none !important;
+  }
+}
+
+/* Overlay escuro atrás do menu */
+.menu-mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(7, 8, 7, 0.74);
+  z-index: 199;
+  transition: opacity 0.25s;
+  opacity: 0;
+}
+
+/* Botão hamburger (três traços) */
+.menu-mobile-btn {
+  position: fixed;
+  top: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  background: none;
+  border: none;
+  z-index: 201;
+  cursor: pointer;
+}
+.menu-mobile-icon,
+.menu-mobile-icon::before,
+.menu-mobile-icon::after {
+  display: block;
+  background: #fff;
+  height: 3px;
+  width: 28px;
+  border-radius: 2px;
+  position: absolute;
+  left: 8px;
+  transition: 0.3s;
+}
+.menu-mobile-icon {
+  position: relative;
+  margin-top: 20px;
+}
+.menu-mobile-icon::before,
+.menu-mobile-icon::after {
+  content: '';
+  position: absolute;
+}
+.menu-mobile-icon::before { top: -10px; }
+.menu-mobile-icon::after { top: 10px; }
+
+/* Menu lateral mobile */
+.menu-mobile {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 286px;
+  height: 100vh;
+  background: #181d16;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 23px;
+  z-index: 200;
+  padding-top: 0;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.10);
+  transition: transform 0.25s;
+  transform: translateX(-100%);
+}
+.menu-mobile.open {
+  transform: translateX(0);
+  display: flex;
+}
+
 /* Esconder o botão hamburger quando o menu estiver aberto */
 .menu-mobile.open ~ .menu-mobile-btn,
 .menu-mobile.open + .menu-mobile-btn {
@@ -334,7 +429,7 @@ button {
 .menu-mobile-close {
   position: absolute;
   right: -80%;
-  top:10px;
+  top: 10px;
   font-size: 4.1rem;
   background: none;
   border: none;
