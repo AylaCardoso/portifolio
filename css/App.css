@@ -287,61 +287,47 @@ button {
 .menu-mobile-icon::before { top: -10px; }
 .menu-mobile-icon::after { top: 10px; }
 
-/* Overlay escuro atrás do menu */
-.menu-mobile-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(7, 8, 7, 0.74);
-  z-index: 199;
-  transition: opacity 0.25s;
-  opacity: 0;
-}
-.menu-mobile-overlay.open {
-  display: block;
-  opacity: 1;
-}
-
-/* Menu lateral mobile */
-.menu-mobile {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 286px;
-  height: 100vh;
-  background: #181d16;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 23px;
-  z-index: 200;
-  padding-top: 0;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.10);
-  transition: transform 0.25s;
-  transform: translateX(-100%);
-  display: none;
-}
-.menu-mobile.open {
-  transform: translateX(0);
-  display: flex;
-}
-
-/* Esconde o menu mobile por padrão */
+/* Esconde o menu mobile e overlay por padrão */
 .menu-mobile-btn,
 .menu-mobile,
 .menu-mobile-overlay {
   display: none;
 }
 
-/* Exibe o menu mobile e esconde o menu desktop em telas pequenas */
+/* Só exibe em telas pequenas */
 @media (max-width: 900px) {
   .menu-mobile-btn {
     display: block;
   }
   .menu-mobile {
     display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 286px;
+    height: 100vh;
+    background: #181d16;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 23px;
+    z-index: 200;
+    padding-top: 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.10);
+    transition: transform 0.25s;
+    transform: translateX(-100%);
   }
   .menu-mobile.open {
+    transform: translateX(0);
     display: flex;
+  }
+  .menu-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(7, 8, 7, 0.74);
+    z-index: 199;
+    transition: opacity 0.25s;
+    opacity: 0;
   }
   .menu-mobile-overlay.open {
     display: block;
@@ -350,16 +336,6 @@ button {
   .menu {
     display: none !important;
   }
-}
-
-/* Overlay escuro atrás do menu */
-.menu-mobile-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(7, 8, 7, 0.74);
-  z-index: 199;
-  transition: opacity 0.25s;
-  opacity: 0;
 }
 
 /* Botão hamburger (três traços) */
@@ -397,34 +373,6 @@ button {
 }
 .menu-mobile-icon::before { top: -10px; }
 .menu-mobile-icon::after { top: 10px; }
-
-/* Menu lateral mobile */
-.menu-mobile {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 286px;
-  height: 100vh;
-  background: #181d16;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 23px;
-  z-index: 200;
-  padding-top: 0;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.10);
-  transition: transform 0.25s;
-  transform: translateX(-100%);
-}
-.menu-mobile.open {
-  transform: translateX(0);
-  display: flex;
-}
-
-/* Esconder o botão hamburger quando o menu estiver aberto */
-.menu-mobile.open ~ .menu-mobile-btn,
-.menu-mobile.open + .menu-mobile-btn {
-  display: none !important;
-}
 
 .menu-mobile-close {
   position: absolute;
