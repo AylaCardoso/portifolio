@@ -41,17 +41,16 @@ img, .container, section, .skills-cards-group, .certificados-bg {
 
 /* Container principal */
 .container {
-  background: url('../img/background.jpg') no-repeat center center;
-  background-size: cover;
-  width: 100vw;
-  max-width: 100vw;
-  height: 807px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 20px;
+    width: 100vw;
+    max-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('../img/background.jpg') no-repeat center center;
+    background-size: cover;
+    height: 807px;
 }
 
 /* Menu de navegação - estrutura principal */
@@ -469,7 +468,7 @@ button {
 .sobre-mim-section {
   width: 100vw;
   min-width: 100%;
-  height: 378px;
+  height: 43rem;
   background: #070E0C;
   display: flex;
   align-items: center;
