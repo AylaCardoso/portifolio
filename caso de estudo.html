@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Caso de Estudo – PsycConnection</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Fauna+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<div class="header-case">
+  <h1>PsycConnection</h1>
+  <p>App mobile para questionários psicológicos: triagem digital, ética e apoio à anamnese de pacientes.</p>
+</div>
+<div class="container-case">
+
+  <div class="card-section">
+    <span class="section-title">Resumo do Projeto</span>
+    <p>
+      O <strong>PsycConnection</strong> é um aplicativo móvel de saúde mental que oferece questionários digitais para anamnese psicológica, com interface acolhedora, intuitiva e acessível. O design prioriza navegação simples, feedback visual imediato e componentes claros, tornando o processo de avaliação mais confortável para pacientes e eficiente para profissionais.
+    </p>
+  </div>
+
+  <div class="card-section">
+    <span class="section-title">Contexto</span>
+    <p>
+      O aumento das doenças mentais após a pandemia evidenciou a urgência de ferramentas digitais para identificação precoce e acompanhamento de pacientes. O PsycConnection surge para atender essa demanda, facilitando a triagem e o suporte em saúde mental com foco em experiência do usuário, ética e privacidade.
+    </p>
+  </div>
+
+  <div class="card-section">
+    <span class="section-title">Desafio de Interface</span>
+    <ul>
+      <li>Transformar a anamnese digital em uma experiência acolhedora, clara e sem ruídos.</li>
+      <li>Garantir acessibilidade para diferentes perfis de usuários, incluindo pacientes e profissionais.</li>
+      <li>Permitir o acompanhamento do progresso e resultados de forma intuitiva e ética.</li>
+      <li>Transmitir confiança, privacidade e profissionalismo em todas as etapas da interface.</li>
+    </ul>
+  </div>
+
+  <div class="card-section">
+    <span class="section-title">Processo de Design</span>
+    <ul>
+      <li><strong>Levantamento de requisitos:</strong> Entrevistas com profissionais e análise das necessidades de pacientes e especialistas em saúde mental.</li>
+      <li><strong>Pesquisa de benchmarking:</strong> Estudo de apps como Kanopee, Amaha e Whats Up? para identificar boas práticas e oportunidades de diferenciação.</li>
+      <li><strong>Definição do questionário:</strong> Implementação do PBQ-SF (Personality Belief Questionnaire - Short Form), instrumento validado para avaliação de crenças e transtornos de personalidade.</li>
+      <li><strong>Protótipos no Figma:</strong> Criação de wireframes, fluxogramas e protótipos navegáveis para validar fluxos e usabilidade junto ao público-alvo.</li>
+      <li><strong>Escolha das cores:</strong> Paleta azul-claro, branco, cinza e verde para feedback positivo, garantindo um visual leve, profissional e acolhedor.</li>
+      <li><strong>Testes de usabilidade:</strong> Ajustes feitos a partir do feedback de profissionais e usuários simulados, garantindo clareza e acessibilidade.</li>
+    </ul>
+  </div>
+
+  <div class="card-section">
+    <span class="section-title">Caso de Uso</span>
+    <p>
+      O fluxo do PsycConnection foi desenhado para ser simples e seguro, contemplando dois perfis principais:
+      <strong>Profissional</strong> e <strong>Paciente</strong>. Cada um possui funcionalidades específicas e acesso diferenciado.
+    </p>
+    <div>
+      <div class="usecase-list-title">Profissional:</div>
+      <ul class="usecase-list">
+        <li><span class="icon">🔑</span>Login seguro com validação de CRM/CRP</li>
+        <li><span class="icon">👤</span>Cadastro e gerenciamento de perfil profissional</li>
+        <li><span class="icon">📝</span>Criação, edição e envio de questionários de anamnese</li>
+        <li><span class="icon">📊</span>Visualização dos resultados e status dos questionários enviados</li>
+        <li><span class="icon">🔒</span>Acesso restrito para profissionais não validados</li>
+      </ul>
+      <div class="usecase-list-title" style="margin-top:24px;">Paciente:</div>
+      <ul class="usecase-list">
+        <li><span class="icon">🔑</span>Login ou acesso via código do questionário</li>
+        <li><span class="icon">👤</span>Cadastro de perfil (nome, e-mail, CPF, senha)</li>
+        <li><span class="icon">📝</span>Preenchimento dos questionários enviados pelo profissional</li>
+        <li><span class="icon">⏳</span>Acompanhamento do status dos questionários (feito/pendente)</li>
+        <li><span class="icon">🔒</span>Privacidade e consentimento garantidos em todas as etapas</li>
+      </ul>
+    </div>
+    <div style="margin-top: 24px;">
+      <strong>Exemplo de fluxo:</strong>
+      <ol class="usecase-flow">
+        <li>Usuário acessa o app e escolhe o perfil: paciente ou profissional.</li>
+        <li>Realiza login ou cadastro (com validação de dados).</li>
+        <li>Profissional pode criar e enviar questionários; paciente acessa e responde.</li>
+        <li>Resultados ficam disponíveis para acompanhamento seguro e ético.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card-section">
+    <span class="section-title">Fluxos e Telas do App</span>
+
+    <!-- FLUXO DE LOGIN, CADASTRO E SELEÇÃO DE PERFIL -->
+    <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Acesso e Cadastro</h3>
+    <div class="gallery">
+      <img src="img/tela-login.jpg" alt="Tela de login: campos grandes, botão azul, opção de recuperar senha e criar conta.">
+      <img src="img/tela-perfil.jpg" alt="Seleção de perfil: escolha entre Paciente e Profissional, botões destacados.">
+      <img src="img/tela-cadastro-participante.jpg" alt="Cadastro de paciente: campos para nome, e-mail, CPF, senha, aceite de termos.">
+      <img src="img/tela-cadastro-profissional.jpg" alt="Cadastro de profissional: campos para nome, e-mail, CPF, CRM/CRP, senha, aceite de termos.">
+    </div>
+    <p>
+      O fluxo de acesso do <strong>PsycConnection</strong> foi desenhado para ser simples, seguro e adaptado a cada perfil de usuário. Ao iniciar o app, o usuário pode optar por realizar login ou criar uma nova conta. A seleção de perfil é feita de forma clara, permitindo escolher entre <strong>Paciente</strong> ou <strong>Profissional</strong>, cada um com telas de cadastro específicas e campos adaptados às suas necessidades:
+    </p>
+    <ul>
+      <li>
+        <strong>Tela de Login:</strong> Apresenta campos para e-mail e senha, além de opções para recuperação de senha e acesso ao cadastro. O design utiliza fundo azul-claro, ícones temáticos e um botão de login destacado, promovendo acessibilidade e acolhimento.
+      </li>
+      <li>
+        <strong>Cadastro de Paciente:</strong> Após selecionar o perfil de paciente, o usuário visualiza uma tela de cadastro que solicita: nome completo, e-mail, CPF, senha e confirmação de senha. Há também um checkbox para concordar com os termos de serviço e política de privacidade. Essa abordagem garante segurança e personalização do acesso, além de facilitar o gerenciamento dos dados pelos profissionais.
+      </li>
+      <li>
+        <strong>Cadastro de Profissional:</strong> Para o perfil profissional, a tela de cadastro inclui os campos: nome completo, e-mail, CPF, credencial CRM ou CRP, senha e confirmação de senha. Assim como no cadastro de paciente, o profissional deve concordar com os termos de serviço e política de privacidade antes de finalizar o registro. A exigência da credencial garante a validação e autenticidade dos profissionais de saúde mental que utilizarão o sistema.
+      </li>
+    </ul>
+    <p>
+      Esse fluxo de cadastro segmentado garante que cada tipo de usuário tenha uma experiência personalizada e segura, além de reforçar a confiabilidade do sistema tanto para pacientes quanto para profissionais. Labels intuitivos, validação de campos e botões de ação bem destacados contribuem para uma experiência de uso fluida e acessível em todas as etapas do registro.
+    </p>
+
+    <!-- FLUXO DE ORIENTAÇÃO -->
+    <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Introdução e Orientações</h3>
+    <div class="gallery">
+      <img src="img/tela-orientacao-paciente-1.jpg" alt="Tela de orientação do paciente 1: introdução ao app e ao objetivo dos questionários.">
+      <img src="img/tela-orientacao-paciente-2.jpg" alt="Tela de orientação do paciente 2: reforço sobre a importância do acompanhamento profissional.">
+      <img src="img/tela-orientacao-paciente-3.jpg" alt="Tela de orientação do paciente 3: dicas de autocuidado e incentivo à busca de ajuda especializada.">
+    </div>
+    <p>
+      O <strong>PsycConnection</strong> apresenta, no primeiro acesso do paciente, três telas de orientação que promovem acolhimento, ética e conscientização:
+    </p>
+    <ul>
+      <li><strong>Questionários de autoavaliação:</strong> O app oferece questionários para ajudar o paciente a compreender melhor seus sentimentos e emoções. Ressalta-se que esses instrumentos não substituem a avaliação de um profissional de saúde mental, servindo como ponto de partida para o autoconhecimento.</li>
+      <li><strong>Cuidado profissional:</strong> O paciente é incentivado a buscar acompanhamento especializado sempre que necessário, pois apenas profissionais podem oferecer avaliação, diagnóstico e suporte personalizado.</li>
+      <li><strong>Autocuidado consciente:</strong> O app incentiva hábitos saudáveis, como sono adequado, exercícios físicos, alimentação equilibrada e conexões sociais, lembrando que o autocuidado é parte fundamental para a saúde mental.</li>
+    </ul>
+    <div class="gallery">
+      <img src="img/tela-orientacao-profissional-1.jpg" alt="Tela de orientação do profissional 1: introdução ao app e ao objetivo das ferramentas.">
+      <img src="img/tela-orientacao-profissional-2.jpg" alt="Tela de orientação do profissional 2: explicação sobre o propósito dos testes e limitações.">
+      <img src="img/tela-orientacao-profissional-3.jpg" alt="Tela de orientação do profissional 3: orientações sobre ética, privacidade e uso responsável dos dados.">
+    </div>
+    <p>
+      Para o perfil profissional, o fluxo inicial também apresenta três telas de orientação, reforçando o compromisso ético e a responsabilidade no uso das ferramentas:
+    </p>
+    <ul>
+      <li><strong>Introdução ao PsycConnection:</strong> O app oferece ferramentas de avaliação para apoiar o trabalho clínico, permitindo uma compreensão mais ampla dos aspectos psicológicos dos pacientes.</li>
+      <li><strong>Propósito do aplicativo:</strong> Os testes fornecem uma visão preliminar dos aspectos psicológicos, mas não substituem uma avaliação clínica completa. Os resultados devem ser interpretados no contexto de uma análise abrangente.</li>
+      <li><strong>Uso ético e responsável:</strong> O profissional é orientado a esclarecer aos pacientes que os testes são apenas parte do processo de avaliação, além de reforçar o compromisso com a privacidade e a confidencialidade dos dados, em conformidade com as normas de proteção de dados.</li>
+    </ul>
+
+    <!-- FLUXO PRINCIPAL: HOME E NAVEGAÇÃO -->
+    <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Home e Navegação Principal</h3>
+    <div class="gallery">
+      <img src="img/tela-home-paciente.png" alt="Home do paciente: lista de questionários recebidos, status visual, botão para inserir código.">
+      <img src="img/tela-conexao.png" alt="Tela de conexão: inserção de código para vincular paciente e profissional.">
+      <img src="img/tela-status-conexao.png" alt="Tela de status de conexão: mensagens de sucesso ou alerta, botões de confirmação.">
+      <img src="img/tela-home-profissional.png" alt="Home do profissional: lista de questionários criados, botões para criar/editar/compartilhar, barra de busca.">
+    </div>
+    <p>
+      <strong>Homepage do Paciente:</strong><br>
+      A tela inicial do paciente apresenta uma experiência acolhedora e informativa. No topo, há um aviso importante reforçando que os testes de autoavaliação disponíveis no aplicativo são ferramentas de insight inicial e não substituem diagnósticos profissionais. Para avaliações precisas, o paciente é orientado a buscar um profissional de saúde mental qualificado.
+    </p>
+    <p>
+      Logo abaixo, o paciente encontra a seção "Questionários de autoavaliação", onde são listados os questionários disponíveis, como o <em>Questionário de crenças dos transtornos da personalidade – forma reduzida (PBQ-SF)</em>. Cada questionário exibe seu status, indicando se está "concluído" ou "não concluído", facilitando o acompanhamento do progresso. O layout utiliza ícones temáticos e divisórias para organizar visualmente as opções, promovendo clareza e acessibilidade.
+    </p>
+    <p>
+      No canto inferior direito, um botão flutuante permite ao paciente inserir um código fornecido pelo profissional para acessar novos questionários ou funcionalidades.
+    </p>
+    <p>
+      <strong>Conexão Paciente-Profissional:</strong><br>
+      O fluxo de conexão entre paciente e profissional é realizado por meio de um sistema de códigos. O paciente acessa a tela de inserção de código, onde deve digitar o código fornecido pelo profissional para se conectar e liberar o acesso aos questionários específicos. O campo de entrada é destacado e o botão "Inserir código" garante uma navegação simples e direta.
+    </p>
+    <p>
+      Do lado do profissional, o sistema gera um código único para cada conexão. O profissional pode visualizar o código, compartilhar diretamente com o paciente ou até mesmo utilizar opções de compartilhamento rápido por aplicativos de mensagem e redes sociais. Há também a possibilidade de selecionar pacientes específicos para compartilhar o código, facilitando o gerenciamento de múltiplos atendimentos.
+    </p>
+    <p>
+      <strong>Homepage do Profissional:</strong><br>
+      Na tela inicial do profissional, o app apresenta um aviso de boas-vindas ressaltando que as ferramentas disponíveis servem para apoiar as avaliações clínicas, mas não substituem uma avaliação completa. O profissional pode visualizar todos os questionários criados, incluindo o <em>Questionário de crenças dos transtornos da personalidade – forma reduzida (PBQ-SF)</em> e placeholders para futuros questionários. Cada item possui ícones representativos e setas para facilitar a navegação até as opções de edição, envio ou análise dos resultados.
+    </p>
+    <p>
+      O botão flutuante no canto inferior direito permite ao profissional criar novos questionários ou iniciar o processo de conexão com pacientes, tornando o fluxo de trabalho mais ágil e intuitivo.
+    </p>
+    <div style="margin-top: 18px;">
+      <strong>Resumo dos Fluxos:</strong>
+      <ul>
+        <li>O paciente visualiza seus questionários e pode inserir um código para acessar novos testes.</li>
+        <li>O profissional gera e compartilha códigos de conexão, podendo selecionar pacientes e compartilhar por diferentes canais.</li>
+        <li>Ambos os perfis contam com avisos claros sobre o uso ético e os limites das ferramentas digitais, reforçando a importância do acompanhamento profissional.</li>
+      </ul>
+    </div>
+    <p>
+      Esse fluxo garante segurança, privacidade e praticidade, promovendo uma experiência moderna, ética e centrada no usuário para pacientes e profissionais de saúde mental.
+    </p>
+
+    <!-- FLUXO DE QUESTIONÁRIO -->
+    <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Questionário e Avaliação</h3>
+    <div class="gallery">
+      <img src="img/tela-home-paciente.png" alt="Homepage do paciente: lista de questionários de autoavaliação, status e botão para inserir código.">
+      <img src="img/tela-questionario-paciente.png" alt="Tela de questionário: perguntas, escala de respostas e navegação.">
+      <img src="img/tela-finalizacao-paciente.png" alt="Tela de finalização: teste finalizado com sucesso.">
+      <img src="img/tela-home-profissional.png" alt="Homepage do profissional: lista de participantes, últimos acessos e status.">
+      <img src="img/tela-questionarios-participante.png" alt="Tela de questionários do participante: lista de testes feitos pelo paciente.">
+      <img src="img/tela-resultados-profissional.png" alt="Tela de respostas do questionário: respostas do paciente e chave de avaliação.">
+    </div>
+    <p>
+      O fluxo do <strong>PsycConnection</strong> integra de forma intuitiva as experiências de paciente e profissional:
+    </p>
+    <ul>
+      <li>
+        <strong>Paciente:</strong> A homepage exibe todos os questionários de autoavaliação disponíveis, com status visual ("concluído" ou "não concluído"). Ao selecionar um questionário, o paciente é direcionado para a tela de perguntas, onde responde cada item em uma escala visual. Após finalizar, recebe uma tela de confirmação de sucesso, reforçando o feedback positivo e o encerramento do processo.
+      </li>
+      <li>
+        <strong>Profissional:</strong> O profissional acessa uma homepage com a lista de participantes, podendo visualizar o histórico de respostas de cada paciente, datas de conexão e número de questionários respondidos. Ao selecionar um participante, o profissional vê todos os questionários feitos, podendo acessar cada um para analisar as respostas detalhadas e consultar a chave de avaliação, o que facilita o acompanhamento clínico e o planejamento de intervenções.
+      </li>
+    </ul>
+    <p>
+      Esse fluxo garante que o paciente tenha autonomia e clareza durante a realização dos testes, enquanto o profissional dispõe de ferramentas completas para monitorar o progresso, analisar resultados e personalizar o atendimento, promovendo uma experiência ética, segura e centrada no usuário.
+    </p>
+
+    <!-- FLUXO DE SUPORTE, FEEDBACK E PRIVACIDADE -->
+    <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Menu, Perfil, Suporte e Privacidade</h3>
+    <div class="gallery">
+      <img src="img/menu-lateral.png" alt="Menu lateral: acesso rápido a testes realizados, conexões, notificações, mensagens e perfil do usuário.">
+      <img src="img/perfil.png" alt="Tela de perfil: informações do usuário, opções de edição, notificações, segurança, configurações, política de privacidade e suporte.">
+      <img src="img/editar-perfil.png" alt="Tela de edição de perfil: campos para nome, e-mail, telefone, data de nascimento, país, gênero, estado e cidade.">
+      <img src="img/suporte.png" alt="Tela de suporte: opções de contato e ajuda, incluindo website, FAQs, feedback e converse conosco.">
+      <img src="img/faq.png" alt="Tela de suporte - FAQs: dúvidas frequentes sobre privacidade, funcionamento dos questionários, resultados e suporte técnico.">
+    </div>
+    <p>
+      O <strong>menu lateral</strong> do PsycConnection proporciona navegação rápida e intuitiva para as principais áreas do aplicativo. O usuário pode acessar facilmente:
+    </p>
+    <ul>
+      <li><strong>Testes realizados:</strong> Visualização do histórico de questionários já respondidos.</li>
+      <li><strong>Conexões:</strong> Gerenciamento das conexões com profissionais ou pacientes.</li>
+      <li><strong>Notificações:</strong> Acesso a alertas importantes e novidades do app.</li>
+      <li><strong>Mensagens:</strong> Comunicação direta e centralizada dentro do aplicativo.</li>
+      <li><strong>Perfil do usuário:</strong> Foto, nome e opção de sair da conta.</li>
+    </ul>
+    <p>
+      Ao acessar o <strong>perfil</strong>, o usuário encontra suas informações pessoais (nome, e-mail, telefone), além de opções para editar dados, configurar notificações, segurança, preferências de conta, política de privacidade e suporte. A interface é clara, com ícones temáticos e organização vertical, facilitando o acesso e a compreensão das funcionalidades.
+    </p>
+    <p>
+      Na <strong>tela de edição de perfil</strong>, é possível atualizar nome completo, e-mail, número de telefone, data de nascimento, país, gênero, estado e cidade, garantindo que os dados estejam sempre atualizados e personalizados conforme as necessidades do usuário.
+    </p>
+    <p>
+      O <strong>suporte</strong> é acessível pelo menu e pelo perfil, oferecendo canais de ajuda como website, FAQs, feedback/sugestões e contato direto com a equipe. A seção de <strong>FAQs</strong> organiza dúvidas frequentes sobre privacidade, funcionamento dos questionários, interpretação de resultados e orientações para situações de crise, promovendo transparência, autonomia e segurança ao usuário.
+    </p>
+  </div>
+
+  <div class="card-section">
+    <span class="section-title">Resultados e Usabilidade</span>
+    <ul>
+      <li>Profissionais relataram facilidade e agilidade na aplicação dos questionários digitais, elogiando a clareza dos fluxos e a navegação intuitiva.</li>
+      <li>Pacientes destacaram o visual acolhedor, a clareza das perguntas e o conforto na experiência de uso, mesmo em dispositivos móveis.</li>
+      <li>O app tornou a coleta de informações mais rápida, organizada e menos intimidadora, promovendo autonomia e confiança.</li>
+      <li>O sistema garantiu segurança no armazenamento dos dados e respeito à privacidade, com telas de consentimento e avisos éticos claros.</li>
+    </ul>
+    <div style="margin-top: 18px; font-weight: 600; color: #8D816F;">
+      O PsycConnection se destaca como solução de interface moderna, ética e acessível, promovendo saúde mental com tecnologia e design centrado no usuário.
+    </div>
+  </div>
+
+  <div class="card-section">
+    <span class="section-title">Lições de Interface</span>
+    <ul>
+      <li>O equilíbrio entre clareza visual, acessibilidade e acolhimento é essencial para engajar e apoiar o usuário em saúde mental.</li>
+      <li>Testes de protótipo e feedback contínuo são fundamentais para garantir usabilidade real e eliminar barreiras de navegação.</li>
+      <li>Microinterações e feedback visual imediato aumentam a confiança e reduzem a ansiedade do usuário durante o uso.</li>
+      <li>A padronização de componentes e hierarquia visual facilita o uso por diferentes públicos, incluindo idosos e pessoas com pouca experiência digital.</li>
+    </ul>
+  </div>
+
+  <div class="card-section">
+    <span class="section-title">Conclusão</span>
+    <p>
+      O PsycConnection demonstra como o design de interface pode transformar a experiência em saúde mental: telas limpas, navegação intuitiva, cores acolhedoras e microinterações elevam a confiança do usuário e a eficácia clínica. O projeto reforça o papel do design centrado no usuário como diferencial estratégico em soluções digitais de saúde.
+    </p>
+  </div>
+</div>
+</body>
+</html>
