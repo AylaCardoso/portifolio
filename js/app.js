@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-  // 1. Scroll suave ao navegar para as seções
+  // 1. Scroll suave para as seções
   document.querySelectorAll('.btn-skills').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
@@ -19,26 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('.btn-baixar-portifolio').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
-      // Troque o caminho abaixo para o arquivo correto do seu portfólio PDF
       window.open('downloads/ayla-cardoso-portifolio.pdf', '_blank');
     });
   });
-
-  const navMenu = document.querySelector('.menu');
-  const sobreMimSection = document.querySelector('.sobre-mim-section'); // troque aqui
-
-  function handleNavBgOnScroll() {
-    if (!sobreMimSection || !navMenu) return;
-    const rect = sobreMimSection.getBoundingClientRect();
-    if (rect.top <= 0) {
-      navMenu.classList.add('nav-bg-dark');
-    } else {
-      navMenu.classList.remove('nav-bg-dark');
-    }
-  }
-
-  window.addEventListener('scroll', handleNavBgOnScroll);
-  handleNavBgOnScroll();
 
   // 3. Botão para abrir o case de estudo (página HTML)
   document.querySelectorAll('.btn-caso-estudo').forEach(btn => {
@@ -48,7 +31,74 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // 5. Validação do formulário de contato
+  // 4. Elementos principais
+  const navMenu = document.querySelector('.menu');
+  const bgBtnMobile = document.querySelector('.bg-btn-mobile');
+  const sobreMimSection = document.querySelector('.sobre-mim-section');
+  const btn = document.querySelector('.menu-mobile-btn');
+  const menu = document.getElementById('menu-mobile');
+  const closeBtn = document.querySelector('.menu-mobile-close');
+  const overlay = document.querySelector('.menu-mobile-overlay');
+
+  // 5. Controle da barra verde e fundo do menu
+  function handleBarraVerdeTopo() {
+    if (!sobreMimSection) return;
+    const rect = sobreMimSection.getBoundingClientRect();
+    const isMobile = window.innerWidth <= 900;
+
+    // Desktop: Ativa fundo no menu principal
+    if (!isMobile && navMenu) {
+      if (rect.top <= 0) {
+        navMenu.classList.add('nav-bg-dark');
+      } else {
+        navMenu.classList.remove('nav-bg-dark');
+      }
+      // No desktop, a barra verde mobile deve sempre estar oculta
+      if (bgBtnMobile) bgBtnMobile.classList.add('hide');
+    }
+    // Mobile: Ativa barra verde
+    else if (isMobile && bgBtnMobile) {
+      if (rect.top <= 0) {
+        // Só mostra se o menu mobile NÃO estiver aberto
+        if (!menu.classList.contains('open')) {
+          bgBtnMobile.classList.remove('hide');
+        }
+      } else {
+        bgBtnMobile.classList.add('hide');
+      }
+      // No mobile, o menu desktop deve sempre estar oculto
+      if (navMenu) navMenu.classList.remove('nav-bg-dark');
+    }
+  }
+
+  // 6. MENU MOBILE HAMBURGER COM OVERLAY
+  function closeMenuMobile() {
+    menu.classList.remove('open');
+    if (overlay) overlay.classList.remove('open');
+    btn.style.display = 'block';
+    menu.setAttribute('aria-hidden', 'true');
+    btn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+    handleBarraVerdeTopo(); // Atualiza a barra ao fechar
+  }
+  if (btn && menu && closeBtn && overlay) {
+    btn.addEventListener('click', function() {
+      menu.classList.add('open');
+      if (overlay) overlay.classList.add('open');
+      btn.style.display = 'none';
+      menu.setAttribute('aria-hidden', 'false');
+      btn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+      if (bgBtnMobile) bgBtnMobile.classList.add('hide'); // Esconde a barra ao abrir menu
+    });
+    closeBtn.addEventListener('click', closeMenuMobile);
+    overlay.addEventListener('click', closeMenuMobile);
+    document.querySelectorAll('.menu-mobile-list a').forEach(link => {
+      link.addEventListener('click', closeMenuMobile);
+    });
+  }
+
+  // 7. Validação do formulário de contato
   const form = document.querySelector('.contato-form');
   if (form) {
     const nome = document.getElementById('nome');
@@ -131,32 +181,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // 6. MENU MOBILE HAMBURGER COM OVERLAY
-  const btn = document.querySelector('.menu-mobile-btn');
-  const menu = document.getElementById('menu-mobile');
-  const closeBtn = document.querySelector('.menu-mobile-close');
-  const overlay = document.querySelector('.menu-mobile-overlay');
-  function closeMenuMobile() {
-    menu.classList.remove('open');
-    if (overlay) overlay.classList.remove('open');
-    btn.style.display = 'block';
-    menu.setAttribute('aria-hidden', 'true');
-    btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  }
-  if (btn && menu && closeBtn && overlay) {
-    btn.addEventListener('click', function() {
-      menu.classList.add('open');
-      if (overlay) overlay.classList.add('open');
-      btn.style.display = 'none';
-      menu.setAttribute('aria-hidden', 'false');
-      btn.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    });
-    closeBtn.addEventListener('click', closeMenuMobile);
-    overlay.addEventListener('click', closeMenuMobile);
-    document.querySelectorAll('.menu-mobile-list a').forEach(link => {
-      link.addEventListener('click', closeMenuMobile);
-    });
-  }
+  // 8. Eventos globais
+  window.addEventListener('scroll', handleBarraVerdeTopo);
+  window.addEventListener('resize', handleBarraVerdeTopo);
+  handleBarraVerdeTopo();
 });

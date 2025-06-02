@@ -319,6 +319,36 @@ button {
   .menu-mobile-btn {
     display: block;
   }
+  .bg-btn-mobile {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 80px;
+    background: #070E0C;
+    z-index: 201;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    opacity: 1;
+  }
+  .bg-btn-mobile.hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .menu-mobile-btn {
+    position: fixed;
+    top: 8px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    z-index: 202;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   .menu-mobile {
     display: none;
     position: fixed;
