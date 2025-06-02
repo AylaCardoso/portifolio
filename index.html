@@ -15,8 +15,7 @@
   </style>
 </head>
 <body>
-<header>
-  <!-- Botão Hamburger (visível só no mobile) -->
+<div class="bg-btn-mobile">
   <button class="menu-mobile-btn" aria-label="Abrir menu" aria-controls="menu-mobile" aria-expanded="false">
     <span class="menu-mobile-icon"></span>
   </button>
@@ -56,20 +55,19 @@
     </div>
     <div class="social-icons">
       <a href="downloads/ayla-cardoso-curriculo.pdf" class="icon-link" download>
-        <img src="img/pdf.svg" alt="Download currículo" class="icon" />
+        <img src="img/pdf.svg" data-dark="img/Frame 40.svg"  alt="Download currículo" class="icon icon-pdf" />
         <span class="icon-caption">Baixar currículo</span>
       </a>
       <a href="https://www.linkedin.com/in/ayla-cardoso-8493aa197/" class="icon-link" target="_blank" rel="noopener noreferrer">
-        <img src="img/linkedin.svg" alt="Perfil no LinkedIn" class="icon" />
+        <img src="img/linkedin.svg" data-dark="img/Frame 42.svg" alt="Perfil no LinkedIn" class="icon icon-linkedin" />
         <span class="icon-caption">Linkedin</span>
       </a>
       <a href="https://wa.me/5514998521573" class="icon-link" target="_blank" rel="noopener noreferrer">
-        <img src="img/whatsapp.svg" alt="Contato via WhatsApp" class="icon" />
+        <img src="img/whatsapp.svg" data-dark="img/Frame 43.svg"  alt="Contato via WhatsApp" class="icon icon-whatsapp" />
         <span class="icon-caption">Whatsapp</span>
       </a>
     </div>
   </nav>
-</header>
 
 <main>
   <section class="container">
@@ -99,7 +97,7 @@
             Busco sempre unir criatividade, empatia e pensamento crítico para criar experiências digitais que realmente façam a diferença para as pessoas. Estou em constante aprendizado, aberta a novos desafios e pronta para colaborar em projetos inovadores na área de design digital e tecnologia.
           </p>
           <div class="sobre-mim-buttons">
-            <button class="btn-figma-projeto">Último projeto</button>
+            <button class="btn-baixar-portifolio">Baixar Portfólio</button>
             <button class="btn-caso-estudo">Caso de estudo</button>
           </div>
         </div>
@@ -296,6 +294,6 @@
     </div>
   </section>
 </main>
-  <script src="js/app.js"></script>
+<script src="js/app.js"></script>
 </body>
 </html>

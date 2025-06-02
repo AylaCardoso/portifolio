@@ -27,7 +27,7 @@
 body {
   font-family: 'Fauna One', serif;
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   color: var(--cor-branca);
   position: relative;
   overflow-x: hidden;
@@ -56,15 +56,27 @@ img, .container, section, .skills-cards-group, .certificados-bg {
 /* Menu de navegação - estrutura principal */
 .menu {
   position: fixed;
-  top: 20px;
-  right: 40px;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  min-height: 56px;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  gap: 38px;
   z-index: 100;
+  background: transparent;
+  transition: background 0.3s, backdrop-filter 0.3s;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.menu.nav-bg-dark {
+  background: #070E0C;
+  backdrop-filter: blur(4px);
 }
 
 .menu-items {
+  margin-right: 20px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -103,6 +115,7 @@ img, .container, section, .skills-cards-group, .certificados-bg {
 }
 
 .icon {
+  margin: 5px;
   width: 27px;
   height: 27px;
   object-fit: contain;
@@ -263,7 +276,7 @@ button {
   position: fixed;
   top: 28px;
   right: 28px;
-  width: 44px;
+  width: 60px;
   height: 44px;
   background: none;
   border: none;
@@ -348,9 +361,9 @@ button {
 /* Botão hamburger (três traços) */
 .menu-mobile-btn {
   position: fixed;
-  top: 28px;
-  right: 28px;
-  width: 44px;
+  top: 20px;
+  right: 50px;
+  width: 40px;
   height: 44px;
   background: none;
   border: none;
@@ -663,7 +676,7 @@ button {
 
 .certificados-section {
   width: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1572,7 +1585,6 @@ textarea::placeholder {
     gap: 6px;
   }
   .icon {
-    width: 24px;
     height: 24px;
   }
   .icon-caption {

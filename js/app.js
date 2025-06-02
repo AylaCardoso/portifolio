@@ -1,32 +1,44 @@
-// Espera o DOM carregar completamente
 document.addEventListener('DOMContentLoaded', function() {
   // 1. Scroll suave ao navegar para as seções
   document.querySelectorAll('.btn-skills').forEach(btn => {
     btn.addEventListener('click', function(e) {
-      if (!btn.classList.contains('btn-figma-projeto')) {
-        e.preventDefault();
-        const section = document.getElementById('skills');
-        if (section) section.scrollIntoView({ behavior: 'smooth' });
-      }
+      e.preventDefault();
+      const section = document.getElementById('skills');
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
     });
   });
   document.querySelectorAll('.btn-contact').forEach(btn => {
     btn.addEventListener('click', function(e) {
-      if (!btn.classList.contains('btn-caso-estudo')) {
-        e.preventDefault();
-        const section = document.getElementById('contato');
-        if (section) section.scrollIntoView({ behavior: 'smooth' });
-      }
+      e.preventDefault();
+      const section = document.getElementById('contato');
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
     });
   });
 
-  // 2. Botão para abrir o projeto Figma (Último projeto)
-  document.querySelectorAll('.btn-figma-projeto').forEach(btn => {
+  // 2. Botão para baixar o portfólio em PDF
+  document.querySelectorAll('.btn-baixar-portifolio').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
-      window.open('https://www.figma.com/design/5dFya2weQj5xaX4qWwCDoX/Projeto-mobile-tcc?node-id=0-1&p=f&t=X9X6oji3i1sC24HW-0', '_blank');
+      // Troque o caminho abaixo para o arquivo correto do seu portfólio PDF
+      window.open('downloads/ayla-cardoso-portifolio.pdf', '_blank');
     });
   });
+
+  const navMenu = document.querySelector('.menu');
+  const sobreMimSection = document.querySelector('.sobre-mim-section'); // troque aqui
+
+  function handleNavBgOnScroll() {
+    if (!sobreMimSection || !navMenu) return;
+    const rect = sobreMimSection.getBoundingClientRect();
+    if (rect.top <= 0) {
+      navMenu.classList.add('nav-bg-dark');
+    } else {
+      navMenu.classList.remove('nav-bg-dark');
+    }
+  }
+
+  window.addEventListener('scroll', handleNavBgOnScroll);
+  handleNavBgOnScroll();
 
   // 3. Botão para abrir o case de estudo (página HTML)
   document.querySelectorAll('.btn-caso-estudo').forEach(btn => {
@@ -36,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // 4. Validação do formulário de contato
+  // 5. Validação do formulário de contato
   const form = document.querySelector('.contato-form');
   if (form) {
     const nome = document.getElementById('nome');
@@ -119,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // 5. MENU MOBILE HAMBURGER COM OVERLAY
+  // 6. MENU MOBILE HAMBURGER COM OVERLAY
   const btn = document.querySelector('.menu-mobile-btn');
   const menu = document.getElementById('menu-mobile');
   const closeBtn = document.querySelector('.menu-mobile-close');
@@ -127,7 +139,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function closeMenuMobile() {
     menu.classList.remove('open');
     if (overlay) overlay.classList.remove('open');
-    btn.style.display = 'block'; // mostra hamburger
+    btn.style.display = 'block';
     menu.setAttribute('aria-hidden', 'true');
     btn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
@@ -136,7 +148,7 @@ document.addEventListener('DOMContentLoaded', function() {
     btn.addEventListener('click', function() {
       menu.classList.add('open');
       if (overlay) overlay.classList.add('open');
-      btn.style.display = 'none'; // esconde hamburger
+      btn.style.display = 'none';
       menu.setAttribute('aria-hidden', 'false');
       btn.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
