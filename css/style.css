@@ -144,6 +144,7 @@ ul li, ol li { margin-bottom: 0.4em; }
 .usecase-flow li {
   margin-bottom: 0.3em;
   font-family: 'Fauna One', serif;
+  margin-left: 25px;
 }
 
 /* Galeria de imagens responsiva */
@@ -195,7 +196,7 @@ ul li, ol li { margin-bottom: 0.4em; }
   .container-case { max-width: 98%; padding: 0 8px; }
   .card-section { padding: 32px 18px 22px 18px; }
   .header-case h1 { font-size: 2rem; }
-  .section-title { font-size: 1.2rem; }
+  .section-title { font-size: 1.6rem; }
   .gallery img { max-width: 100%; min-width: 0; }
 }
 
@@ -204,7 +205,7 @@ ul li, ol li { margin-bottom: 0.4em; }
   .header-case { padding: 36px 0 18px 0; }
   .container-case { gap: 32px; padding: 0 2vw; }
   .card-section { padding: 16px 4px 14px 4px; border-radius: 12px; }
-  .section-title { font-size: 1.05rem; }
+  .section-title { font-size: 1.4rem; }
   .section-title::after { width: 36px; height: 2px; }
   .gallery { flex-direction: column; gap: 10px; }
   .gallery img { max-width: 100%; min-width: 0; }
@@ -213,6 +214,6 @@ ul li, ol li { margin-bottom: 0.4em; }
 /* Telas muito pequenas (até 400px) */
 @media (max-width: 400px) {
   .header-case h1 { font-size: 1.2rem; }
-  .section-title { font-size: 0.98rem; }
+  .section-title { font-size: 1.1rem; }
   .card-section { padding: 8px 2px 8px 2px; }
 }
