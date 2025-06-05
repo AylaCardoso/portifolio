@@ -6,14 +6,23 @@
   --cor-branca: #fff;
   --cor-sombra: rgba(7,14,12,0.10);
 }
+
+/* Reset básico e box-sizing para responsividade */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: var(--cor-bege-claro);
   color: var(--cor-marrom-escuro);
   font-family: 'Fauna One', serif;
-  margin: 0;
-  padding: 0;
   min-height: 100vh;
+  line-height: 1.7;
 }
+
+/* Header */
 .header-case {
   width: 100%;
   background: var(--cor-preta);
@@ -23,29 +32,26 @@ body {
   margin-bottom: 60px;
   position: relative;
   z-index: 2;
+  text-align: center;
 }
 .header-case h1 {
   font-family: 'Cinzel', serif;
   font-size: 3.2rem;
   font-weight: 700;
   letter-spacing: 2px;
-  margin: 0 0 12px 0;
-  text-align: center;
+  margin-bottom: 12px;
   text-transform: uppercase;
   line-height: 1.1;
 }
 .header-case p {
   font-size: 1.3rem;
-  color: var(--cor-branca);
   opacity: 0.97;
-  text-align: center;
-  margin: 0;
-  font-family: 'Fauna One', serif;
   max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   line-height: 1.5;
 }
+
+/* Container principal */
 .container-case {
   max-width: 50%;
   margin: 0 auto 80px auto;
@@ -55,19 +61,21 @@ body {
   align-items: center;
   gap: 56px;
 }
+
+/* Cards */
 .card-section {
   width: 100%;
   background: var(--cor-branca);
   border-radius: 22px;
   box-shadow: 0 8px 32px var(--cor-sombra);
-  margin: 0 auto;
   padding: 54px 70px 44px 70px;
-  box-sizing: border-box;
   color: var(--cor-marrom-escuro);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
+/* Títulos */
 .section-title {
   font-size: 2rem;
   font-family: 'Cinzel', serif;
@@ -90,14 +98,14 @@ body {
   border-radius: 2px;
 }
 .card-section > p, .card-section > ul, .card-section > ol {
-  margin-bottom: 0;
   font-size: 1.18rem;
-  line-height: 1.7;
   color: var(--cor-marrom-escuro);
   text-align: justify;
 }
 ul, ol { padding-left: 24px; }
 ul li, ol li { margin-bottom: 0.4em; }
+
+/* Listas de casos de uso */
 .usecase-list {
   margin: 32px 0 0 0;
   padding: 0;
@@ -137,6 +145,8 @@ ul li, ol li { margin-bottom: 0.4em; }
   margin-bottom: 0.3em;
   font-family: 'Fauna One', serif;
 }
+
+/* Galeria de imagens responsiva */
 .gallery {
   display: flex;
   flex-wrap: wrap;
@@ -147,15 +157,18 @@ ul li, ol li { margin-bottom: 0.4em; }
   align-items: center;
 }
 .gallery img {
-  flex: 1 1 400px;
+  flex: 1 1 300px;
   max-width: 36%;
-  min-width: 220px;
+  min-width: 180px;
   border-radius: 12px;
   border: 1px solid #e0dbd0;
   background: #F5F5E9;
   box-shadow: 0 2px 8px rgba(141,129,111,0.05);
+  width: 100%;
+  height: auto;
 }
 
+/* Botões */
 .btn-case {
   display: inline-block;
   background: var(--cor-marrom);
@@ -173,21 +186,33 @@ ul li, ol li { margin-bottom: 0.4em; }
 }
 .btn-case:hover {
   background: var(--cor-marrom-escuro);
-  color: var(--cor-branca);
 }
+
+/* ========== MEDIA QUERIES ========== */
+
+/* Tablets (até 1200px) */
 @media (max-width: 1200px) {
-  .container-case { padding: 0 8px; }
+  .container-case { max-width: 98%; padding: 0 8px; }
   .card-section { padding: 32px 18px 22px 18px; }
   .header-case h1 { font-size: 2rem; }
   .section-title { font-size: 1.2rem; }
   .gallery img { max-width: 100%; min-width: 0; }
 }
+
+/* Celulares (até 700px) */
 @media (max-width: 700px) {
   .header-case { padding: 36px 0 18px 0; }
-  .container-case { gap: 32px; }
-  .card-section { padding: 16px 4px 14px 4px; }
+  .container-case { gap: 32px; padding: 0 2vw; }
+  .card-section { padding: 16px 4px 14px 4px; border-radius: 12px; }
   .section-title { font-size: 1.05rem; }
   .section-title::after { width: 36px; height: 2px; }
   .gallery { flex-direction: column; gap: 10px; }
-  .gallery img { max-width: 100%; }
+  .gallery img { max-width: 100%; min-width: 0; }
+}
+
+/* Telas muito pequenas (até 400px) */
+@media (max-width: 400px) {
+  .header-case h1 { font-size: 1.2rem; }
+  .section-title { font-size: 0.98rem; }
+  .card-section { padding: 8px 2px 8px 2px; }
 }
