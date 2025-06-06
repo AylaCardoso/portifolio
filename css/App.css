@@ -486,7 +486,7 @@ button {
   }
   button {
     font-size: 14px;
-    padding: 8px 16px;
+    padding: 8px 10px;
     width: 120px;
     height: 44px;
   }
@@ -1530,6 +1530,74 @@ textarea::placeholder {
   .certificados-timeline {
     max-width: 100vw;
     padding: 0 10px;
+  }
+  .sobre-mim-section {
+    padding: 40px 40px;
+    height: auto;
+    background: #070E0C;
+    display: block;
+    position: relative;
+  }
+  .sobre-mim-content {
+    max-width: 100%;
+    margin: 0;
+    display: block;
+  }
+  .sobre-mim-title {
+    position: relative;
+    text-align: left;
+    font-size: 30px;
+    margin-bottom: 20px;
+    padding-left: 0;
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  .sobre-mim-title::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 32px;
+    height: 2px;
+    background: var(--cor-marrom);
+    margin-right: 12px;
+    border-radius: 1px;
+    position: relative;
+    top: -2px;
+  }
+  .sobre-mim-row {
+    flex-direction: column !important;
+    gap: 0;
+    width: 100%;
+  }
+  .sobre-mim-bar {
+    display: none;
+  }
+  .sobre-mim-text {
+    width: 100%;
+    font-size: 18px;
+    line-height: 1.6;
+    padding: 0;
+    margin-bottom: 32px;
+    text-align: justify;
+  }
+  .sobre-mim-buttons {
+    gap: 16px;
+    width: 100%;
+    align-items: center;
+  }
+  .sobre-mim-buttons button {
+    width: 280px;
+    height: 48px;
+    margin: 0 10px;
+  }
+  .btn-baixar-portifolio,
+  .btn-caso-estudo {
+    width: 280px;
+    height: 48px;
+    font-size: 1rem;
+    text-transform: none !important;
   }
   .certificados-timeline::before {
     left: 3.2rem;
