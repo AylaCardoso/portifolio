@@ -1558,7 +1558,7 @@ textarea::placeholder {
     content: "";
     display: inline-block;
     vertical-align: middle;
-    width: 32px;
+    width: 62px;
     height: 2px;
     background: var(--cor-marrom);
     margin-right: 12px;
