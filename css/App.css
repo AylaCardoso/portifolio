@@ -226,7 +226,7 @@ button {
   border-color: transparent;
 }
 
-.btn-figma-projeto {
+.btn-baixar-portifolio {
   background-color: var(--cor-marrom);
   color: var(--cor-branca);
   border: none;
@@ -239,8 +239,8 @@ button {
   transition: all 0.3s ease;
   text-transform: none !important;
 }
-.btn-figma-projeto:hover,
-.btn-figma-projeto:focus {
+.btn-baixar-portifolio:hover,
+.btn-baixar-portifolio:focus {
   background-color: var(--cor-marrom-escuro);
 }
 
@@ -1532,7 +1532,7 @@ textarea::placeholder {
     padding: 0 10px;
   }
   .certificados-timeline::before {
-    left: 2rem;
+    left: 3.2rem;
     transform: none;
     width: 2px;
     background: #8D816F;
@@ -1708,7 +1708,7 @@ textarea::placeholder {
     height: 48px;
     margin: 0 auto;
   }
-  .btn-figma-projeto,
+  .btn-baixar-portifolio,
   .btn-caso-estudo {
     width: 280px;
     height: 48px;
