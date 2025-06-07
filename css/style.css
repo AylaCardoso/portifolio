@@ -21,6 +21,98 @@ body {
   min-height: 100vh;
   line-height: 1.7;
 }
+/* Estilo base para a galeria */
+.gallery {
+  margin: 1rem 0;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Carrossel mobile (Bootstrap, mas com customizações) */
+.gallery .carousel {
+  border-radius: 8px;
+}
+.gallery .carousel-inner img {
+  border-radius: 8px;
+  width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+  background: #f8f9fa;
+}
+
+/* Indicadores: bolinhas */
+.carousel-indicators {
+  bottom: 20px;
+  gap: 8px;
+  padding: 0;
+  margin-bottom: 8px;
+  background: transparent; /* Sem fundo */
+}
+.carousel-indicators [data-bs-target] {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 1px solid #fff;
+  margin: 0;
+  opacity: 1;
+  transition: background 0.3s;
+  box-sizing: border-box;
+}
+.carousel-indicators .active {
+  background-color: #94d39b;
+  border-color: #fff; /* Borda branca constante */
+}
+
+/* Botões de navegação */
+.gallery .carousel-control-prev,
+.gallery .carousel-control-next {
+  background-color: rgba(0,0,0,0.2);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.gallery .carousel-control-prev-icon,
+.gallery .carousel-control-next-icon {
+  filter: invert(1);
+}
+
+/* Galeria desktop (customizada) */
+.gallery.d-none.d-md-block {
+  display: none;
+}
+.gallery.d-none.d-md-block img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Responsividade: galeria desktop */
+@media (min-width: 768px) {
+  .gallery.d-none.d-md-block {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .gallery.d-none.d-md-block img {
+    flex: 1 1 calc(50% - 1rem);
+    max-width: calc(50% - 1rem);
+  }
+}
+@media (min-width: 992px) {
+  .gallery.d-none.d-md-block img {
+    flex: 1 1 calc(33.333% - 1rem);
+    max-width: calc(33.333% - 1rem);
+  }
+}
 
 /* Header */
 .header-case {
@@ -209,6 +301,7 @@ ul li, ol li { margin-bottom: 0.4em; }
 
 /* Celulares (até 700px) */
 @media (max-width: 700px) {
+  .swiper { display: none; }
   .header-case { padding: 36px 0 18px 0; }
   .container-case { gap: 32px; padding: 0 2vw; }
   .card-section { padding: 16px 4px 14px 4px; border-radius: 12px; }
@@ -220,6 +313,7 @@ ul li, ol li { margin-bottom: 0.4em; }
 
 /* Telas muito pequenas (até 400px) */
 @media (max-width: 400px) {
+  .swiper { display: none; }
   .header-case h1 { font-size: 1.2rem; }
   .section-title { font-size: 1.1rem; }
   .card-section { padding: 8px 2px 8px 2px; }

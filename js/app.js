@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (section) section.scrollIntoView({ behavior: 'smooth' });
     });
   });
+
   document.querySelectorAll('.btn-contact').forEach(btn => {
     btn.addEventListener('click', function(e) {
       e.preventDefault();
@@ -53,20 +54,15 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         navMenu.classList.remove('nav-bg-dark');
       }
-      // No desktop, a barra verde mobile deve sempre estar oculta
       if (bgBtnMobile) bgBtnMobile.classList.add('hide');
     }
     // Mobile: Ativa barra verde
     else if (isMobile && bgBtnMobile) {
-      if (rect.top <= 0) {
-        // Só mostra se o menu mobile NÃO estiver aberto
-        if (!menu.classList.contains('open')) {
-          bgBtnMobile.classList.remove('hide');
-        }
+      if (rect.top <= 0 && !menu.classList.contains('open')) {
+        bgBtnMobile.classList.remove('hide');
       } else {
         bgBtnMobile.classList.add('hide');
       }
-      // No mobile, o menu desktop deve sempre estar oculto
       if (navMenu) navMenu.classList.remove('nav-bg-dark');
     }
   }
@@ -79,8 +75,9 @@ document.addEventListener('DOMContentLoaded', function() {
     menu.setAttribute('aria-hidden', 'true');
     btn.setAttribute('aria-expanded', 'false');
     document.body.style.overflow = '';
-    handleBarraVerdeTopo(); // Atualiza a barra ao fechar
+    handleBarraVerdeTopo();
   }
+
   if (btn && menu && closeBtn && overlay) {
     btn.addEventListener('click', function() {
       menu.classList.add('open');
@@ -89,8 +86,9 @@ document.addEventListener('DOMContentLoaded', function() {
       menu.setAttribute('aria-hidden', 'false');
       btn.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
-      if (bgBtnMobile) bgBtnMobile.classList.add('hide'); // Esconde a barra ao abrir menu
+      if (bgBtnMobile) bgBtnMobile.classList.add('hide');
     });
+
     closeBtn.addEventListener('click', closeMenuMobile);
     overlay.addEventListener('click', closeMenuMobile);
     document.querySelectorAll('.menu-mobile-list a').forEach(link => {
@@ -125,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
       }
     }
+
     function validaEmail() {
       const emailVal = email.value.trim();
       const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -151,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
       }
     }
+
     function validaMensagem() {
       if (!mensagem.value.trim()) {
         mensagem.classList.add('erro');
@@ -168,9 +168,11 @@ document.addEventListener('DOMContentLoaded', function() {
         return true;
       }
     }
+
     nome.addEventListener('input', validaNome);
     email.addEventListener('input', validaEmail);
     mensagem.addEventListener('input', validaMensagem);
+
     form.addEventListener('submit', function(e) {
       const validNome = validaNome();
       const validEmail = validaEmail();
@@ -185,4 +187,5 @@ document.addEventListener('DOMContentLoaded', function() {
   window.addEventListener('scroll', handleBarraVerdeTopo);
   window.addEventListener('resize', handleBarraVerdeTopo);
   handleBarraVerdeTopo();
+
 });
