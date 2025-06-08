@@ -70,9 +70,10 @@ img, .container, section, .skills-cards-group, .certificados-bg {
   box-sizing: border-box;
 }
 
-.menu.nav-bg-dark {
+.menu.nav-bg-green {
   background: #070E0C;
   backdrop-filter: blur(4px);
+  transition: background 0.3s ease;
 }
 
 .menu-items {
