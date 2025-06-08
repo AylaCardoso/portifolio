@@ -10,18 +10,61 @@
   <link rel="icon" href="uiicon.png" />
 </head>
 <body>
+<header>
+  <!-- Menu Mobile Lateral -->
+  <nav id="menu-mobile" class="menu-mobile" aria-label="Menu mobile" aria-hidden="true">
+    <button class="menu-mobile-close" aria-label="Fechar menu">&times;</button>
+    <ul class="menu-mobile-list">
+      <li><a href="#contexto">Contexto</a></li>
+      <li><a href="#processo-de-design">Processo de design</a></li>
+      <li><a href="#fluxos-e-telas-do-app">Fluxos e telas do app</a></li>
+      <li><a href="#licoes">Lições de interface</a></li>
+    </ul>
+    <div class="menu-mobile-social">
+      <a href="downloads/ayla-cardoso-curriculo.pdf" download title="Download currículo">
+        <img src="img/pdf.svg" alt="Download currículo" />
+      </a>
+      <a href="https://www.linkedin.com/in/ayla-cardoso-8493aa197/" target="_blank" rel="noopener noreferrer" title="Linkedin">
+        <img src="img/linkedin.svg" alt="Linkedin" />
+      </a>
+      <a href="https://wa.me/5514998521573" target="_blank" rel="noopener noreferrer" title="Whatsapp">
+        <img src="img/whatsapp.svg" alt="Whatsapp" />
+      </a>
+    </div>
+  </nav>
+
+  <!-- Menu Desktop -->
+  <nav class="menu" aria-label="Menu principal">
+    <div class="menu-items">
+      <a href="#contexto">Contexto</a>
+      <a href="#processo-de-design">Processo de design</a>
+      <a href="#fluxos-e-telas-do-app">Fluxos e telas do app</a>
+      <a href="#licoes">Lições de interface</a>
+    </div>
+    <div class="social-icons">
+      <a href="downloads/ayla-cardoso-curriculo.pdf" class="icon-link" download>
+        <img src="img/pdf.svg" data-dark="img/Frame 40.svg" alt="Download currículo" class="icon icon-pdf" />
+        <span class="icon-caption">Baixar currículo</span>
+      </a>
+      <a href="https://www.linkedin.com/in/ayla-cardoso-8493aa197/" class="icon-link" target="_blank" rel="noopener noreferrer">
+        <img src="img/linkedin.svg" data-dark="img/Frame 42.svg" alt="Perfil no LinkedIn" class="icon icon-linkedin" />
+        <span class="icon-caption">Linkedin</span>
+      </a>
+      <a href="https://wa.me/5514998521573" class="icon-link" target="_blank" rel="noopener noreferrer">
+        <img src="img/whatsapp.svg" data-dark="img/Frame 43.svg" alt="Contato via WhatsApp" class="icon icon-whatsapp" />
+        <span class="icon-caption">Whatsapp</span>
+      </a>
+    </div>
+  </nav>
+</header>
 <div class="header-case">
   <h1>PsycConnection</h1>
-  <p>App mobile para questionários psicológicos: triagem digital, ética e apoio à anamnese de pacientes.</p>
+  <p>
+    O <strong>PsycConnection</strong> é um aplicativo móvel de saúde mental que oferece questionários digitais para anamnese psicológica, com interface acolhedora, intuitiva e acessível. O design prioriza navegação simples, feedback visual imediato e componentes claros, tornando o processo de avaliação mais confortável para pacientes e eficiente para profissionais.
+  </p>
 </div>
 <div class="container-case">
 
-  <div class="card-section">
-    <span class="section-title">Resumo do Projeto</span>
-    <p>
-      O <strong>PsycConnection</strong> é um aplicativo móvel de saúde mental que oferece questionários digitais para anamnese psicológica, com interface acolhedora, intuitiva e acessível. O design prioriza navegação simples, feedback visual imediato e componentes claros, tornando o processo de avaliação mais confortável para pacientes e eficiente para profissionais.
-    </p>
-  </div>
 
   <div class="card-section">
     <span class="section-title">Contexto</span>
@@ -31,6 +74,7 @@
   </div>
 
   <div class="card-section">
+    <section id="contexto">
     <span class="section-title">Desafio de Interface</span>
     <ul>
       <li>Transformar a anamnese digital em uma experiência acolhedora, clara e sem ruídos.</li>
@@ -38,9 +82,11 @@
       <li>Permitir o acompanhamento do progresso e resultados de forma intuitiva e ética.</li>
       <li>Transmitir confiança, privacidade e profissionalismo em todas as etapas da interface.</li>
     </ul>
+    </section>
   </div>
 
   <div class="card-section">
+    <section id="processo-de-design">
     <span class="section-title">Processo de Design</span>
     <ul>
       <li><strong>Levantamento de requisitos:</strong> Entrevistas com profissionais e análise das necessidades de pacientes e especialistas em saúde mental.</li>
@@ -50,6 +96,7 @@
       <li><strong>Escolha das cores:</strong> Paleta azul-claro, branco, cinza e verde para feedback positivo, garantindo um visual leve, profissional e acolhedor.</li>
       <li><strong>Testes de usabilidade:</strong> Ajustes feitos a partir do feedback de profissionais e usuários simulados, garantindo clareza e acessibilidade.</li>
     </ul>
+    </section>
   </div>
 
   <div class="card-section">
@@ -88,55 +135,28 @@
   </div>
 
   <div class="card-section">
+    <section id="fluxos-e-telas-do-app">
     <span class="section-title">Fluxos e Telas do App</span>
 
     <!-- FLUXO DE LOGIN, CADASTRO E SELEÇÃO DE PERFIL -->
     <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Acesso e Cadastro</h3>
     <!-- Carrossel para mobile (Bootstrap) -->
-    <div class="gallery d-block d-md-none">
-      <div id="carouselMobile" class="carousel slide">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselMobile" data-bs-slide-to="0" class="active"></button>
-          <button type="button" data-bs-target="#carouselMobile" data-bs-slide-to="1"></button>
-          <button type="button" data-bs-target="#carouselMobile" data-bs-slide-to="2"></button>
-          <button type="button" data-bs-target="#carouselMobile" data-bs-slide-to="3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/tela-login.jpg" class="d-block w-100" alt="Tela de login: campos grandes, botão azul, opção de recuperar senha e criar conta.">
-          </div>
-          <div class="carousel-item">
-            <img src="img/tela-perfil.jpg" class="d-block w-100" alt="Seleção de perfil: escolha entre Paciente e Profissional, botões destacados.">
-          </div>
-          <div class="carousel-item">
-            <img src="img/tela-cadastro-participante.jpg" class="d-block w-100" alt="Cadastro de paciente: campos para nome, e-mail, CPF, senha, aceite de termos.">
-          </div>
-          <div class="carousel-item">
-            <img src="img/tela-cadastro-profissional.jpg" class="d-block w-100" alt="Cadastro de profissional: campos para nome, e-mail, CPF, CRM/CRP, senha, aceite de termos.">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselMobile" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselMobile" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        </button>
-      </div>
-    </div>
-
     <!-- Galeria tradicional para desktop -->
-    <div class="carousel-container">
-      <button class="carousel-arrow left">&lt;</button>
-      <div class="carousel-track">
-        <img src="img/tela-login.jpg" alt="Tela de login">
-        <img src="img/tela-perfil.jpg" alt="Seleção de perfil">
-        <img src="img/tela-cadastro-participante.jpg" alt="Cadastro de paciente">
-        <img src="img/tela-cadastro-profissional.jpg" alt="Cadastro de profissional">
+      <div class="carousel-container">
+        <button class="carousel-arrow left">&lt;</button>
+        <div class="carousel-track">
+          <img src="img/tela-login.jpg" alt="Tela de login">
+          <img src="img/tela-perfil.jpg" alt="Seleção de perfil">
+          <img src="img/tela-cadastro-participante.jpg" alt="Cadastro de paciente">
+          <img src="img/tela-cadastro-profissional.jpg" alt="Cadastro de profissional">
+        </div>
+        <button class="carousel-arrow right">&gt;</button>
+        <!-- Indicadores -->
+        <div class="carousel-indicators"></div>
       </div>
-      <button class="carousel-arrow right">&gt;</button>
-    </div>
 
-    <p>
+
+      <p>
       O fluxo de acesso do <strong>PsycConnection</strong> foi desenhado para ser simples, seguro e adaptado a cada perfil de usuário. Ao iniciar o app, o usuário pode optar por realizar login ou criar uma nova conta. A seleção de perfil é feita de forma clara, permitindo escolher entre <strong>Paciente</strong> ou <strong>Profissional</strong>, cada um com telas de cadastro específicas e campos adaptados às suas necessidades:
     </p>
     <ul>
@@ -312,10 +332,11 @@
     <p>
       O <strong>suporte</strong> é acessível pelo menu e pelo perfil, oferecendo canais de ajuda como website, FAQs, feedback/sugestões e contato direto com a equipe. A seção de <strong>FAQs</strong> organiza dúvidas frequentes sobre privacidade, funcionamento dos questionários, interpretação de resultados e orientações para situações de crise, promovendo transparência, autonomia e segurança ao usuário. O recurso <strong>Converse conosco</strong> permite o envio direto de mensagens para o suporte, facilitando a resolução de dúvidas e o recebimento de feedback.
     </p>
+    </section>
   </div>
 
   <div class="card-section">
-    <span class="section-title">Resultados e Usabilidade</span>
+    <span class="section-title">Resultados e usabilidade</span>
     <ul>
       <li>Profissionais relataram facilidade e agilidade na aplicação dos questionários digitais, elogiando a clareza dos fluxos e a navegação intuitiva.</li>
       <li>Pacientes destacaram o visual acolhedor, a clareza das perguntas e o conforto na experiência de uso, mesmo em dispositivos móveis.</li>
@@ -342,6 +363,7 @@
   </div>
 
   <div class="card-section">
+    <section id="licoes">
     <span class="section-title">Lições de Interface</span>
     <ul>
       <li>O equilíbrio entre clareza visual, acessibilidade e acolhimento é essencial para engajar e apoiar o usuário em saúde mental.</li>
@@ -349,6 +371,7 @@
       <li>Microinterações e feedback visual imediato aumentam a confiança e reduzem a ansiedade do usuário durante o uso.</li>
       <li>A padronização de componentes e hierarquia visual facilita o uso por diferentes públicos, incluindo idosos e pessoas com pouca experiência digital.</li>
     </ul>
+    </section>
   </div>
 
   <div class="card-section">
@@ -356,6 +379,13 @@
     <p>
       O PsycConnection demonstra como o design de interface pode transformar a experiência em saúde mental: telas limpas, navegação intuitiva, cores acolhedoras e microinterações elevam a confiança do usuário e a eficácia clínica. O projeto reforça o papel do design centrado no usuário como diferencial estratégico em soluções digitais de saúde.
     </p>
+  </div>
+</div>
+
+<div class="contato-footer">
+  <div class="contato-line"></div>
+  <div class="contato-copy">
+    © 2025 Todos os direitos reservados. Ayla Cardoso
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
