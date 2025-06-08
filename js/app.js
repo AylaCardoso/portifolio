@@ -27,29 +27,38 @@ document.addEventListener('DOMContentLoaded', function() {
   // 3. Botão para abrir o case de estudo (página HTML)
   document.querySelectorAll('.btn-caso-estudo').forEach(btn => {
     btn.addEventListener('click', function(e) {
-      e.preventDefault();
       window.location.href = 'caso de estudo.html';
     });
   });
 
+
   // 4. Elementos principais
   const navMenu = document.querySelector('.menu');
   const bgBtnMobile = document.querySelector('.bg-btn-mobile');
-  const sobreMimSection = document.querySelector('.sobre-mim-section');
   const btn = document.querySelector('.menu-mobile-btn');
   const menu = document.getElementById('menu-mobile');
   const closeBtn = document.querySelector('.menu-mobile-close');
   const overlay = document.querySelector('.menu-mobile-overlay');
 
-  // 5. Controle da barra verde e fundo do menu
+  // 5. Controle da barra verde - Versão universal
   function handleBarraVerdeTopo() {
-    if (!sobreMimSection) return;
-    const rect = sobreMimSection.getBoundingClientRect();
+    let targetElement;
+
+    // Verifica qual página está
+    if (document.querySelector('.header-case h1')) { // Página do caso de estudo
+      targetElement = document.querySelector('.header-case h1');
+    } else { // Página principal
+      targetElement = document.querySelector('.sobre-mim-section');
+    }
+
+    if (!targetElement) return;
+
+    const rect = targetElement.getBoundingClientRect();
     const is800 = window.innerWidth <= 800;
 
-    // Desktop: Ativa fundo verde no menu principal quando chega na seção Sobre Mim
+    // Desktop: Ativa fundo verde quando o elemento alvo entra na viewport
     if (!is800 && navMenu) {
-      if (rect.top <= 0) {
+      if (rect.top <= 100) { // Ajuste de sensibilidade
         navMenu.classList.add('nav-bg-green');
         navMenu.classList.remove('nav-bg-dark');
       } else {
@@ -57,9 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       if (bgBtnMobile) bgBtnMobile.classList.add('hide');
     }
-    // Mobile: Ativa barra verde
+    // Mobile: Mantém a lógica original
     else if (is800 && bgBtnMobile) {
-      if (rect.top <= 0 && !menu.classList.contains('open')) {
+      if (rect.top <= 100 && !menu.classList.contains('open')) {
         bgBtnMobile.classList.remove('hide');
       } else {
         bgBtnMobile.classList.add('hide');
@@ -68,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // 6. MENU MOBILE HAMBURGER COM OVERLAY
+  // 6. MENU MOBILE HAMBURGER COM OVERLAY (mantido original)
   function closeMenuMobile() {
     menu.classList.remove('open');
     if (overlay) overlay.classList.remove('open');
@@ -244,7 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (prevBtn) prevBtn.addEventListener('click', moveToPrev);
   }
 
-  // 9. Eventos globais
+  // 9. Eventos globais atualizados
   window.addEventListener('scroll', handleBarraVerdeTopo);
   window.addEventListener('resize', handleBarraVerdeTopo);
   handleBarraVerdeTopo();
