@@ -45,10 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
   function handleBarraVerdeTopo() {
     if (!sobreMimSection) return;
     const rect = sobreMimSection.getBoundingClientRect();
-    const isMobile = window.innerWidth <= 900;
+    const is800 = window.innerWidth <= 800;
 
     // Desktop: Ativa fundo no menu principal
-    if (!isMobile && navMenu) {
+    if (!is800 && navMenu) {
       if (rect.top <= 0) {
         navMenu.classList.add('nav-bg-dark');
       } else {
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
       if (bgBtnMobile) bgBtnMobile.classList.add('hide');
     }
     // Mobile: Ativa barra verde
-    else if (isMobile && bgBtnMobile) {
+    else if (is800 && bgBtnMobile) {
       if (rect.top <= 0 && !menu.classList.contains('open')) {
         bgBtnMobile.classList.remove('hide');
       } else {
@@ -183,9 +183,64 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // 8. Eventos globais
+  // 8. CAROUSEL INFINITO (3 IMAGENS VISÍVEIS)
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const visible = 3;
+  const slideWidth = slides[0].offsetWidth + parseInt(getComputedStyle(slides[0]).marginRight);
+
+// Clona as 3 primeiras e 3 últimas imagens
+  for (let i = 0; i < visible; i++) {
+    track.appendChild(slides[i].cloneNode(true));
+    track.insertBefore(slides[slides.length - 1 - i].cloneNode(true), track.firstChild);
+  }
+
+// Atualiza lista de slides após clonagem
+  const allSlides = Array.from(track.children);
+
+// Posição inicial: depois dos clones iniciais
+  let position = visible;
+  track.style.transform = `translateX(-${position * slideWidth}px)`;
+
+// Função para avançar
+  function moveToNext() {
+    position++;
+    track.style.transition = 'transform 0.5s cubic-bezier(.4,0,.2,1)';
+    track.style.transform = `translateX(-${position * slideWidth}px)`;
+
+    track.addEventListener('transitionend', function handler() {
+      // Se chegou no final dos clones, reseta para o início real
+      if (position === allSlides.length - visible) {
+        track.style.transition = 'none';
+        position = visible;
+        track.style.transform = `translateX(-${position * slideWidth}px)`;
+      }
+      track.removeEventListener('transitionend', handler);
+    });
+  }
+
+// Função para voltar
+  function moveToPrev() {
+    position--;
+    track.style.transition = 'transform 0.5s cubic-bezier(.4,0,.2,1)';
+    track.style.transform = `translateX(-${position * slideWidth}px)`;
+
+    track.addEventListener('transitionend', function handler() {
+      // Se chegou no início dos clones, reseta para o final real
+      if (position === 0) {
+        track.style.transition = 'none';
+        position = allSlides.length - 2 * visible;
+        track.style.transform = `translateX(-${position * slideWidth}px)`;
+      }
+      track.removeEventListener('transitionend', handler);
+    });
+  }
+
+  document.querySelector('.carousel-arrow.right').onclick = moveToNext;
+  document.querySelector('.carousel-arrow.left').onclick = moveToPrev;
+
+  // 9. Eventos globais
   window.addEventListener('scroll', handleBarraVerdeTopo);
   window.addEventListener('resize', handleBarraVerdeTopo);
   handleBarraVerdeTopo();
-
 });
