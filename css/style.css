@@ -768,6 +768,10 @@ body {
   max-height: 800px;
 }
 
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(30%) sepia(40%) saturate(900%) hue-rotate(0deg) brightness(60%) contrast(120%);
+}
 
 @media (max-width: 767px) {
   #carouselAcesso .carousel-inner img,
@@ -795,10 +799,12 @@ body {
   }
 }
 
+
+
 /* Cards */
 .card-section {
   width: 100%;
-  border: 1px solid #000;
+  border: 1px solid #746856;
   background: var(--cor-branca);
   border-radius: 22px;
   box-shadow: 0 8px 32px var(--cor-sombra);

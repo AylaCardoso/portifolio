@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let targetElement;
 
     // Verifica qual página está
-    if (document.querySelector('.header-case h1')) { // Página do caso de estudo
+    if (document.querySelector('.header-case h1')) {
       targetElement = document.querySelector('.header-case h1');
     } else { // Página principal
       targetElement = document.querySelector('.sobre-mim-section');
