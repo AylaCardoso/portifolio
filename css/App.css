@@ -179,7 +179,7 @@ img, .container, section, .skills-cards-group, .certificados-bg {
 /* Título principal */
 h1 {
   font-family: 'Cinzel', serif;
-  font-size: 70px;
+  font-size: 4.4rem;
   font-weight: normal;
   letter-spacing: 2px;
   margin-bottom: 30px;
@@ -483,7 +483,7 @@ button {
     top: 10px;
   }
   h1 {
-    font-size: 32px;
+    font-size: 2.3rem;
   }
   button {
     font-size: 14px;
@@ -854,7 +854,7 @@ button {
 
 .skills-section {
   width: 100vw;
-  min-height: 100vh;
+  min-height:95vh;
   background: #F5F5E9;
   display: flex;
   flex-direction: column;
@@ -1082,7 +1082,7 @@ textarea {
 }
 
 .floating-group label {
-  top: 14px; /* igual ao padding-top do input */
+  top: 14px;
   left: 15px;
   font-size: 18px;
   background: #fff;
@@ -1109,7 +1109,7 @@ textarea {
   align-items: center;
   gap: 8px;
   margin-top: 6px;
-  color: #B5242B;
+  color: #D9242B;
   font-family: 'Fauna One', serif;
   font-size: 14px;
   min-height: 0;
@@ -1698,7 +1698,7 @@ textarea::placeholder {
     max-width: 100vw;
   }
   h1 {
-    font-size: 2rem;
+    font-size: 2.3rem;
     margin-bottom: 48px;
   }
   .buttons {

@@ -5,32 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Caso de Estudo – PsycConnection</title>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Fauna+One&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
   <link rel="icon" href="uiicon.png" />
 </head>
 <body>
 <header>
-  <!-- Menu Mobile Lateral -->
-  <nav id="menu-mobile" class="menu-mobile" aria-label="Menu mobile" aria-hidden="true">
-    <button class="menu-mobile-close" aria-label="Fechar menu">&times;</button>
-    <ul class="menu-mobile-list">
-      <li><a href="#contexto">Contexto</a></li>
-      <li><a href="#processo-de-design">Processo de design</a></li>
-      <li><a href="#fluxos-e-telas-do-app">Fluxos e telas do app</a></li>
-      <li><a href="#licoes">Lições de interface</a></li>
-    </ul>
-    <div class="menu-mobile-social">
-      <a href="downloads/ayla-cardoso-curriculo.pdf" download title="Download currículo">
-        <img src="img/pdf.svg" alt="Download currículo" />
-      </a>
-      <a href="https://www.linkedin.com/in/ayla-cardoso-8493aa197/" target="_blank" rel="noopener noreferrer" title="Linkedin">
-        <img src="img/linkedin.svg" alt="Linkedin" />
-      </a>
-      <a href="https://wa.me/5514998521573" target="_blank" rel="noopener noreferrer" title="Whatsapp">
-        <img src="img/whatsapp.svg" alt="Whatsapp" />
-      </a>
-    </div>
-  </nav>
+    <!-- Barra de fundo verde do topo (apenas mobile) -->
+    <div class="bg-btn-mobile"></div>
+
+    <!-- Botão hamburger -->
+    <button class="menu-mobile-btn" aria-label="Abrir menu" aria-controls="menu-mobile" aria-expanded="false">
+      <span class="menu-mobile-icon"></span>
+    </button>
+
+    <!-- Overlay escuro para o fundo -->
+    <div class="menu-mobile-overlay"></div>
+
+    <!-- Menu Mobile Lateral -->
+    <nav id="menu-mobile" class="menu-mobile" aria-label="Menu mobile" aria-hidden="true">
+      <button class="menu-mobile-close" aria-label="Fechar menu">&times;</button>
+      <ul class="menu-mobile-list">
+        <li><a href="#contexto">Contexto</a></li>
+        <li><a href="#processo-de-design">Processo de design</a></li>
+        <li><a href="#fluxos-e-telas-do-app">Fluxos e telas do app</a></li>
+        <li><a href="#licoes">Lições de interface</a></li>
+      </ul>
+      <div class="menu-mobile-social">
+        <a href="downloads/ayla-cardoso-curriculo.pdf" download title="Download currículo">
+          <img src="img/pdf.svg" alt="Download currículo" />
+        </a>
+        <a href="https://www.linkedin.com/in/ayla-cardoso-8493aa197/" target="_blank" rel="noopener noreferrer" title="Linkedin">
+          <img src="img/linkedin.svg" alt="Linkedin" />
+        </a>
+        <a href="https://wa.me/5514998521573" target="_blank" rel="noopener noreferrer" title="Whatsapp">
+          <img src="img/whatsapp.svg" alt="Whatsapp" />
+        </a>
+      </div>
+    </nav>
 
   <!-- Menu Desktop -->
   <nav class="menu" aria-label="Menu principal">
@@ -137,14 +149,45 @@
     <section id="fluxos-e-telas-do-app">
     <span class="section-title">Fluxos e Telas do App</span>
 
-    <!-- FLUXO DE LOGIN, CADASTRO E SELEÇÃO DE PERFIL -->
-    <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Acesso e Cadastro</h3>
-        <div class="gallery">
-          <img src="img/tela-login.jpg" alt="Tela de login">
-          <img src="img/tela-perfil.jpg" alt="Seleção de perfil">
-          <img src="img/tela-cadastro-participante.jpg" alt="Cadastro de paciente">
-          <img src="img/tela-cadastro-profissional.jpg" alt="Cadastro de profissional">
+      <!-- Carrossel Bootstrap: só aparece no mobile -->
+      <div id="carouselAcesso" class="carousel slide d-block d-md-none my-3" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselAcesso" data-bs-slide-to="0" class="active"></button>
+          <button type="button" data-bs-target="#carouselAcesso" data-bs-slide-to="1"></button>
+          <button type="button" data-bs-target="#carouselAcesso" data-bs-slide-to="2"></button>
+          <button type="button" data-bs-target="#carouselAcesso" data-bs-slide-to="3"></button>
         </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="img/tela-login.jpg" class="d-block w-100 rounded" alt="Tela de login">
+          </div>
+          <div class="carousel-item">
+            <img src="img/tela-perfil.jpg" class="d-block w-100 rounded" alt="Seleção de perfil">
+          </div>
+          <div class="carousel-item">
+            <img src="img/tela-cadastro-participante.jpg" class="d-block w-100 rounded" alt="Cadastro de paciente">
+          </div>
+          <div class="carousel-item">
+            <img src="img/tela-cadastro-profissional.jpg" class="d-block w-100 rounded" alt="Cadastro de profissional">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselAcesso" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselAcesso" data-bs-slide="next">
+          <span class="carousel-control-next-icon"></span>
+          <span class="visually-hidden">Próximo</span>
+        </button>
+      </div>
+
+      <!-- Galeria Desktop: só aparece no desktop/tablet -->
+      <div class="gallery d-none d-md-flex my-3" style="gap: 1rem;">
+        <img src="img/tela-login.jpg" alt="Tela de login" class="rounded" style="width: 23%;">
+        <img src="img/tela-perfil.jpg" alt="Seleção de perfil" class="rounded" style="width: 23%;">
+        <img src="img/tela-cadastro-participante.jpg" alt="Cadastro de paciente" class="rounded" style="width: 23%;">
+        <img src="img/tela-cadastro-profissional.jpg" alt="Cadastro de profissional" class="rounded" style="width: 23%;">
+      </div>
 
       <p>
       O fluxo de acesso do <strong>PsycConnection</strong> foi desenhado para ser simples, seguro e adaptado a cada perfil de usuário. Ao iniciar o app, o usuário pode optar por realizar login ou criar uma nova conta. A seleção de perfil é feita de forma clara, permitindo escolher entre <strong>Paciente</strong> ou <strong>Profissional</strong>, cada um com telas de cadastro específicas e campos adaptados às suas necessidades:
@@ -165,7 +208,7 @@
     </p>
 
     <!-- FLUXO DE ORIENTAÇÃO -->
-    <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Introdução e Orientações</h3>
+    <h3 style="font-family:'Fauna One',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Introdução e Orientações</h3>
     <div class="gallery">
       <img src="img/tela-orientacao-paciente-1.jpg" alt="Tela de orientação do paciente 1: introdução ao app e ao objetivo dos questionários.">
       <img src="img/tela-orientacao-paciente-2.jpg" alt="Tela de orientação do paciente 2: reforço sobre a importância do acompanhamento profissional.">
@@ -194,7 +237,7 @@
     </ul>
 
     <!-- FLUXO PRINCIPAL: HOME E NAVEGAÇÃO -->
-    <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Home e Navegação Principal</h3>
+    <h3 style="font-family:'Fauna One',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Home e Navegação Principal</h3>
     <div class="gallery">
       <img src="img/tela-home-paciente.jpg" alt="Home do paciente: lista de questionários recebidos, status visual, botão para inserir código.">
       <img src="img/tela-conexao.jpg" alt="Tela de conexão: inserção de código para vincular paciente e profissional.">
@@ -226,7 +269,7 @@
       No canto inferior direito, um botão flutuante permite criar novos questionários ou iniciar o processo de conexão com pacientes, tornando o fluxo de trabalho mais dinâmico e intuitivo.
     </p>
     <div style="margin-top: 18px;">
-      <strong>Resumo dos Fluxos:</strong>
+      <strong style="font-size: 1.18rem;">Resumo dos Fluxos:</strong>
       <ul>
         <li>O paciente visualiza seus questionários e pode inserir um código para acessar novos testes.</li>
         <li>O profissional gera e compartilha códigos de conexão, podendo selecionar pacientes conectados e compartilhar por diferentes canais, inclusive redes sociais.</li>
@@ -239,7 +282,7 @@
     </p>
 
     <!-- FLUXO DE QUESTIONÁRIO E GESTÃO DE PACIENTES -->
-    <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Questionários do Profissional e Avaliação</h3>
+    <h3 style="font-family:'Fauna One',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Questionários do Profissional e Avaliação</h3>
     <div class="gallery">
       <img src="img/tela-home-profissional.jpg" alt="Homepage do profissional: lista de questionários criados, ícones de acesso rápido para edição e envio.">
       <img src="img/tela-criacao-questionario.jpg" alt="Tela de criação de questionário: escolha do tipo e início da configuração.">
@@ -278,7 +321,7 @@
     </p>
 
     <!-- FLUXO DO PACIENTE: ACESSO E RESPOSTA A QUESTIONÁRIOS -->
-    <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Acesso e Resposta a Questionários pelo Paciente</h3>
+    <h3 style="font-family:'Fauna One',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Acesso e Resposta a Questionários pelo Paciente</h3>
     <div class="gallery">
       <img src="img/tela-questionario-paciente.jpg" alt="Tela de questionário do paciente: perguntas, escala de respostas e navegação.">
     </div>
@@ -293,7 +336,7 @@
     </p>
 
     <!-- FLUXO DE SUPORTE, FEEDBACK E PRIVACIDADE -->
-    <h3 style="font-family:'Cinzel',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Menu, Perfil, Suporte e Privacidade</h3>
+    <h3 style="font-family:'Fauna One',serif;font-size:1.3rem;color:#070E0C;margin:32px 0 14px 0;">Menu, Perfil, Suporte e Privacidade</h3>
     <div class="gallery">
       <img src="img/menu-lateral.jpg" alt="Menu lateral: acesso rápido a testes realizados, conexões, histórico médico, profissionais, notificações, mensagens e perfil do usuário.">
       <img src="img/perfil.jpg" alt="Tela de perfil: informações do usuário, opções de edição, notificações, segurança, configurações, política de privacidade e suporte.">
@@ -379,5 +422,6 @@
   </div>
 </div>
 <script src="js/app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

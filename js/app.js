@@ -27,12 +27,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // 3. Botão para abrir o case de estudo (página HTML)
   document.querySelectorAll('.btn-caso-estudo').forEach(btn => {
     btn.addEventListener('click', function(e) {
-      window.location.href = 'caso de estudo.html';
+      window.location.href = 'caso-de-estudo.html';
     });
   });
 
-
-  // 4. Elementos principais
+  // 4. Elementos principais do menu
   const navMenu = document.querySelector('.menu');
   const bgBtnMobile = document.querySelector('.bg-btn-mobile');
   const btn = document.querySelector('.menu-mobile-btn');
@@ -54,146 +53,129 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!targetElement) return;
 
     const rect = targetElement.getBoundingClientRect();
-    const is800 = window.innerWidth <= 800;
+    const isMobile = window.innerWidth <= 1023;
 
-    // Desktop: Ativa fundo verde quando o elemento alvo entra na viewport
-    if (!is800 && navMenu) {
-      if (rect.top <= 100) { // Ajuste de sensibilidade
-        navMenu.classList.add('nav-bg-green');
-        navMenu.classList.remove('nav-bg-dark');
-      } else {
-        navMenu.classList.remove('nav-bg-green');
-      }
+// Desktop: Ativa fundo verde quando o elemento alvo entra na viewport
+    if (!isMobile && navMenu) {
+      navMenu.classList.toggle('nav-bg-green', rect.top <= 100);
       if (bgBtnMobile) bgBtnMobile.classList.add('hide');
     }
-    // Mobile: Mantém a lógica original
-    else if (is800 && bgBtnMobile) {
-      if (rect.top <= 100 && !menu.classList.contains('open')) {
-        bgBtnMobile.classList.remove('hide');
-      } else {
-        bgBtnMobile.classList.add('hide');
+// Mobile: Mostra barra verde quando o título sai da viewport
+    else if (isMobile && bgBtnMobile) {
+      const shouldShow = rect.top <= 100;
+      bgBtnMobile.classList.toggle('hide', !shouldShow);
+
+      // Aplica fundo verde no menu mobile quando aberto
+      if (menu) {
+        menu.classList.toggle('nav-bg-green', shouldShow && menu.classList.contains('open'));
       }
-      if (navMenu) navMenu.classList.remove('nav-bg-green');
     }
   }
 
-  // 6. MENU MOBILE HAMBURGER COM OVERLAY (mantido original)
-  function closeMenuMobile() {
-    menu.classList.remove('open');
-    if (overlay) overlay.classList.remove('open');
-    btn.style.display = 'block';
-    menu.setAttribute('aria-hidden', 'true');
-    btn.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-    handleBarraVerdeTopo();
-  }
-
-  if (btn && menu && closeBtn && overlay) {
-    btn.addEventListener('click', function() {
+  // 6. Controle do menu mobile
+  function toggleMenuMobile(abrir) {
+    if (abrir) {
       menu.classList.add('open');
-      if (overlay) overlay.classList.add('open');
+      overlay.classList.add('open');
       btn.style.display = 'none';
       menu.setAttribute('aria-hidden', 'false');
       btn.setAttribute('aria-expanded', 'true');
       document.body.style.overflow = 'hidden';
-      if (bgBtnMobile) bgBtnMobile.classList.add('hide');
+    } else {
+      menu.classList.remove('open');
+      overlay.classList.remove('open');
+      btn.style.display = 'block';
+      menu.setAttribute('aria-hidden', 'true');
+      btn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    handleBarraVerdeTopo();
+  }
+
+  if (btn && menu && closeBtn && overlay) {
+    // Abrir menu
+    btn.addEventListener('click', () => toggleMenuMobile(true));
+
+    // Fechar menu
+    const closeActions = [closeBtn, overlay];
+    closeActions.forEach(element => {
+      element.addEventListener('click', () => toggleMenuMobile(false));
     });
 
-    closeBtn.addEventListener('click', closeMenuMobile);
-    overlay.addEventListener('click', closeMenuMobile);
+    // Fechar ao clicar em links do menu
     document.querySelectorAll('.menu-mobile-list a').forEach(link => {
-      link.addEventListener('click', closeMenuMobile);
+      link.addEventListener('click', () => toggleMenuMobile(false));
     });
   }
 
   // 7. Validação do formulário de contato
   const form = document.querySelector('.contato-form');
   if (form) {
-    const nome = document.getElementById('nome');
-    const email = document.getElementById('email');
-    const mensagem = document.getElementById('mensagem');
-    const erroNome = document.getElementById('erro-nome')?.querySelector('span');
-    const erroEmail = document.getElementById('erro-email')?.querySelector('span');
-    const erroMensagem = document.getElementById('erro-mensagem')?.querySelector('span');
+    const campos = {
+      nome: document.getElementById('nome'),
+      email: document.getElementById('email'),
+      mensagem: document.getElementById('mensagem')
+    };
 
-    function validaNome() {
-      if (!nome.value.trim()) {
-        nome.classList.add('erro');
-        nome.classList.remove('sucesso');
-        nome.parentElement.classList.add('erro');
-        nome.parentElement.classList.remove('sucesso');
-        if (erroNome) erroNome.textContent = 'Este campo não pode estar vazio.';
+    const erros = {
+      nome: document.getElementById('erro-nome')?.querySelector('span'),
+      email: document.getElementById('erro-email')?.querySelector('span'),
+      mensagem: document.getElementById('erro-mensagem')?.querySelector('span')
+    };
+
+    // Função genérica de validação
+    function validarCampo(campo, valor, regex = null) {
+      const parent = campo.parentElement;
+      const erro = erros[campo.id];
+
+      if (!valor.trim()) {
+        campo.classList.add('erro');
+        parent.classList.add('erro');
+        if (erro) erro.textContent = 'Este campo não pode estar vazio.';
         return false;
-      } else {
-        nome.classList.remove('erro');
-        nome.classList.add('sucesso');
-        nome.parentElement.classList.remove('erro');
-        nome.parentElement.classList.add('sucesso');
-        if (erroNome) erroNome.textContent = '';
-        return true;
       }
+
+      if (regex && !regex.test(valor)) {
+        campo.classList.add('erro');
+        parent.classList.add('erro');
+        if (erro) erro.textContent = 'Formato inválido.';
+        return false;
+      }
+
+      campo.classList.remove('erro');
+      parent.classList.remove('erro');
+      if (erro) erro.textContent = '';
+      return true;
     }
 
-    function validaEmail() {
-      const emailVal = email.value.trim();
-      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailVal) {
-        email.classList.add('erro');
-        email.classList.remove('sucesso');
-        email.parentElement.classList.add('erro');
-        email.parentElement.classList.remove('sucesso');
-        if (erroEmail) erroEmail.textContent = 'Este campo não pode estar vazio.';
-        return false;
-      } else if (!regex.test(emailVal)) {
-        email.classList.add('erro');
-        email.classList.remove('sucesso');
-        email.parentElement.classList.add('erro');
-        email.parentElement.classList.remove('sucesso');
-        if (erroEmail) erroEmail.textContent = 'Por favor, insira um email válido.';
-        return false;
-      } else {
-        email.classList.remove('erro');
-        email.classList.add('sucesso');
-        email.parentElement.classList.remove('erro');
-        email.parentElement.classList.add('sucesso');
-        if (erroEmail) erroEmail.textContent = '';
-        return true;
-      }
-    }
+    // Validações específicas
+    campos.nome.addEventListener('input', () => {
+      validarCampo(campos.nome, campos.nome.value);
+    });
 
-    function validaMensagem() {
-      if (!mensagem.value.trim()) {
-        mensagem.classList.add('erro');
-        mensagem.classList.remove('sucesso');
-        mensagem.parentElement.classList.add('erro');
-        mensagem.parentElement.classList.remove('sucesso');
-        if (erroMensagem) erroMensagem.textContent = 'Este campo não pode estar vazio.';
-        return false;
-      } else {
-        mensagem.classList.remove('erro');
-        mensagem.classList.add('sucesso');
-        mensagem.parentElement.classList.remove('erro');
-        mensagem.parentElement.classList.add('sucesso');
-        if (erroMensagem) erroMensagem.textContent = '';
-        return true;
-      }
-    }
+    campos.email.addEventListener('input', () => {
+      validarCampo(campos.email, campos.email.value, /^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+    });
 
-    nome.addEventListener('input', validaNome);
-    email.addEventListener('input', validaEmail);
-    mensagem.addEventListener('input', validaMensagem);
+    campos.mensagem.addEventListener('input', () => {
+      validarCampo(campos.mensagem, campos.mensagem.value);
+    });
 
+    // Submit handler
     form.addEventListener('submit', function(e) {
-      const validNome = validaNome();
-      const validEmail = validaEmail();
-      const validMensagem = validaMensagem();
-      if (!validNome || !validEmail || !validMensagem) {
+      const resultados = [
+        validarCampo(campos.nome, campos.nome.value),
+        validarCampo(campos.email, campos.email.value, /^[^\s@]+@[^\s@]+\.[^\s@]+$/),
+        validarCampo(campos.mensagem, campos.mensagem.value)
+      ];
+
+      if (resultados.includes(false)) {
         e.preventDefault();
       }
     });
   }
 
-  // 9. Eventos globais atualizados
+  // 8. Eventos globais
   window.addEventListener('scroll', handleBarraVerdeTopo);
   window.addEventListener('resize', handleBarraVerdeTopo);
   handleBarraVerdeTopo();
