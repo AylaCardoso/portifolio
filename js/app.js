@@ -193,65 +193,105 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // 8. CAROUSEL INFINITO (3 IMAGENS VISÍVEIS)
-  const track = document.querySelector('.carousel-track');
-  if (track) {
+  // 8. CARROSSEL RESPONSIVO COMPLETO
+  const carouselInit = () => {
+    const track = document.querySelector('.carousel-track');
+    const indicatorsContainer = document.querySelector('.carousel-indicators');
+    if (!track || !indicatorsContainer) return;
+
     const slides = Array.from(track.children);
-    const visible = 3;
-    const slideWidth = slides[0].offsetWidth + parseInt(getComputedStyle(slides[0]).marginRight);
+    let visible = 3;
+    let currentPage = 0;
+    let isAnimating = false;
 
-    // Clona as 3 primeiras e 3 últimas imagens
-    for (let i = 0; i < visible; i++) {
-      track.appendChild(slides[i].cloneNode(true));
-      track.insertBefore(slides[slides.length - 1 - i].cloneNode(true), track.firstChild);
-    }
+    // Configurações de margem
+    const marginBetween = 15;
+    const totalMargin = marginBetween * (visible - 1);
 
-    // Atualiza lista de slides após clonagem
-    const allSlides = Array.from(track.children);
+    // Função para determinar número de slides visíveis
+    const updateVisibleSlides = () => {
+      const width = window.innerWidth;
+      if (width <= 768) visible = 1;
+      else if (width <= 1199) visible = 2;
+      else visible = 3;
+    };
 
-    // Posição inicial: depois dos clones iniciais
-    let position = visible;
-    track.style.transform = `translateX(-${position * slideWidth}px)`;
+    // Calcula largura dos slides dinamicamente
+    const calculateSlideWidth = () => {
+      const containerWidth = track.parentElement.offsetWidth;
+      return (containerWidth - totalMargin) / visible;
+    };
 
-    // Função para avançar
-    function moveToNext() {
-      position++;
+    // Atualiza indicadores
+    const updateIndicators = () => {
+      indicatorsContainer.innerHTML = '';
+      const totalPages = Math.ceil(slides.length / visible);
+
+      for (let i = 0; i < totalPages; i++) {
+        const button = document.createElement('button');
+        button.addEventListener('click', () => goToPage(i));
+        button.classList.toggle('active', i === currentPage);
+        indicatorsContainer.appendChild(button);
+      }
+    };
+
+    // Navegação suave
+    const smoothScroll = (offset) => {
+      isAnimating = true;
       track.style.transition = 'transform 0.5s cubic-bezier(.4,0,.2,1)';
-      track.style.transform = `translateX(-${position * slideWidth}px)`;
+      track.style.transform = `translateX(${offset}px)`;
 
-      track.addEventListener('transitionend', function handler() {
-        // Se chegou no final dos clones, reseta para o início real
-        if (position === allSlides.length - visible) {
-          track.style.transition = 'none';
-          position = visible;
-          track.style.transform = `translateX(-${position * slideWidth}px)`;
-        }
-        track.removeEventListener('transitionend', handler);
+      track.addEventListener('transitionend', () => {
+        isAnimating = false;
       }, { once: true });
-    }
+    };
 
-    // Função para voltar
-    function moveToPrev() {
-      position--;
-      track.style.transition = 'transform 0.5s cubic-bezier(.4,0,.2,1)';
-      track.style.transform = `translateX(-${position * slideWidth}px)`;
+    // Navega para página específica
+    const goToPage = (page) => {
+      if (isAnimating) return;
 
-      track.addEventListener('transitionend', function handler() {
-        // Se chegou no início dos clones, reseta para o final real
-        if (position === 0) {
-          track.style.transition = 'none';
-          position = allSlides.length - 2 * visible;
-          track.style.transform = `translateX(-${position * slideWidth}px)`;
-        }
-        track.removeEventListener('transitionend', handler);
-      }, { once: true });
-    }
+      const totalPages = Math.ceil(slides.length / visible);
+      currentPage = Math.max(0, Math.min(page, totalPages - 1));
+      const slideWidth = calculateSlideWidth();
+      const offset = -(currentPage * (slideWidth + marginBetween) * visible);
 
-    const nextBtn = document.querySelector('.carousel-arrow.right');
-    const prevBtn = document.querySelector('.carousel-arrow.left');
-    if (nextBtn) nextBtn.addEventListener('click', moveToNext);
-    if (prevBtn) prevBtn.addEventListener('click', moveToPrev);
-  }
+      smoothScroll(offset);
+      updateIndicators();
+    };
+
+    // Controle de redimensionamento
+    const handleResize = () => {
+      updateVisibleSlides();
+      const newTotalPages = Math.ceil(slides.length / visible);
+      currentPage = Math.min(currentPage, newTotalPages - 1);
+      goToPage(currentPage);
+    };
+
+    // Controle de touch
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => {
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    track.addEventListener('touchend', e => {
+      const touchEndX = e.changedTouches[0].clientX;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) goToPage(currentPage + 1);
+        else goToPage(currentPage - 1);
+      }
+    });
+
+    // Inicialização
+    updateVisibleSlides();
+    updateIndicators();
+    window.addEventListener('resize', handleResize);
+    goToPage(0);
+  };
+
+  // Inicializa o carrossel
+  carouselInit();
 
   // 9. Eventos globais atualizados
   window.addEventListener('scroll', handleBarraVerdeTopo);
